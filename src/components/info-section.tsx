@@ -1,0 +1,64 @@
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
+import { FluidObject } from 'gatsby-image';
+import { ActionCard } from '@/components/action-card';
+
+type InfoSectionImagesProps = () => Array<{
+  node: { name: string; childImageSharp: { fluid: FluidObject } };
+}>;
+
+const useInfoSectionImages: InfoSectionImagesProps = () => {
+  const {
+    allFile: { images },
+  } = useStaticQuery(graphql`
+    query {
+      allFile(filter: { relativeDirectory: { regex: "/info/" } }) {
+        images: edges {
+          node {
+            name
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  return images;
+};
+
+const infoData = require('@/data/info-section-data.yaml');
+const InfoSection: React.FC = () => {
+  const { content } = infoData;
+  const images = useInfoSectionImages();
+
+  return content.map((c, index) => {
+    const { name, title, text } = c.section;
+
+    const image = images.find((im) => im.node.name === name);
+    const {
+      node: {
+        childImageSharp: { fluid },
+      },
+    } = image;
+    return (
+      <ActionCard
+        image={fluid}
+        title={title}
+        text={text}
+        key={`${name}-${index}`}
+        idx={index}
+      />
+    );
+  });
+};
+
+export { InfoSection };

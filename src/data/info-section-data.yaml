@@ -1,0 +1,12 @@
+content:
+  - section:
+      name: 'mission'
+      title: 'Our Mission'
+      text: 'As the world becomes more interconnected, technology, and technical knowledge has never been easier to access.
+              Our mission is to encourage, and empower african youth to utilise technology in buildding things that will
+              not only benefit themselves, but our people.'
+  - section:
+      name: 'vision'
+      title: 'Our Vision'
+      text: 'Community is at the core of our culture as africans. Our vision is a community of like minded, technologically inclined
+            individuals, who will come together to impact positive change in our society. '

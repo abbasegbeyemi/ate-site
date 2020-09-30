@@ -14,24 +14,37 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
-  "extends": ["plugin:react/recommended", "airbnb", "prettier/react"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "prettier"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier/react"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    "import/no-unresolved": [
+      2,
       {
-        "ts": "never",
-        "tsx": "never",
-        "js": "never",
-        "jsx": "never"
+        "commonjs": true,
+        "amd": true
       }
-    ]
+    ],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2
   },
   "overrides": [
     {
@@ -40,7 +53,9 @@
       "parserOptions": {
         "project": "./tsconfig.json"
       },
-      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "plugins": [
+        "@typescript-eslint/eslint-plugin"
+      ],
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
@@ -50,11 +65,15 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "no-use-before-define": [0],
-        "@typescript-eslint/no-use-before-define": [1],
+        "no-use-before-define": [
+          0
+        ],
+        "@typescript-eslint/no-use-before-define": [
+          1
+        ],
         "@typescript-eslint/quotes": [
           2,
-          "backtick",
+          "single",
           {
             "avoidEscape": true
           }
@@ -67,7 +86,13 @@
       "root-import": {
         "rootPathPrefix": "@",
         "rootPathSuffix": "src",
-        "extensions": [".js", ".ts", ".tsx", ".jsx", ".mdx"]
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx",
+          ".jsx",
+          ".mdx"
+        ]
       }
     }
   }
