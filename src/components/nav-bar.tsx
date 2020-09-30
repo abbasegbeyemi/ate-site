@@ -2,16 +2,12 @@
 import * as React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { jsx, Grid } from 'theme-ui';
-import Img from 'gatsby-image';
 import Logo from '@/components/logo';
 
 const NavBar: React.FC = (props) => {
   const {
     site: {
       siteMetadata: { navBarLinks },
-    },
-    file: {
-      childImageSharp: { fluid },
     },
   } = useStaticQuery(graphql`
     query {
@@ -20,18 +16,6 @@ const NavBar: React.FC = (props) => {
           navBarLinks {
             name
             url
-          }
-        }
-      }
-      file(name: { regex: "/logo/" }) {
-        childImageSharp {
-          fluid(maxWidth: 50) {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
-            originalImg
-            originalName
           }
         }
       }

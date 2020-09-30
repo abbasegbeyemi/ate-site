@@ -67,6 +67,18 @@ const plugins = [
       },
     },
   },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Abbas Egbeyemi's Website`,
+      short_name: `Dr. Abbas`,
+      start_url: `/`,
+      background_color: `#029E9E`,
+      theme_color: `#029E9E`,
+      display: `minimal-ui`,
+      icon: `./src/images/logo-circled.png`, // This path is relative to the root of the site.
+    },
+  },
 ];
 
 module.exports = {
