@@ -163,14 +163,18 @@ const theme = {
     header: {
       width: '100%',
       display: 'flex',
+      flex: '1 0 auto',
       flexDirection: 'column',
       bg: 'footerColor',
       '.wavySvg': {
         width: '100%',
-        flexShink: 0,
+        flexShrink: 0,
+        // flex: '0 0 auto',
+        // position: 'relative',
+        display: 'flex',
+
         svg: {
-          width: '100%',
-          height: '100%',
+          flex: '1 0 auto',
           path: {
             fill: 'background',
           },
@@ -189,10 +193,10 @@ const theme = {
       flexDirection: 'column',
       '.wavySvg': {
         width: '100%',
-        flex: '1 0',
+        // flex: '1 0',
+        display: 'flex',
         svg: {
-          width: '100%',
-          height: '100%',
+          flex: '1 0 auto',
           path: {
             fill: 'footerColor',
           },
@@ -201,7 +205,7 @@ const theme = {
       '#container': {
         fontSize: [0, null, 3, null],
         color: 'text',
-        flexShrink: 0,
+        flex: '1 0 auto',
         textAlign: 'center',
         py: 1,
         bg: 'footerColor',

@@ -22,21 +22,23 @@ const NavBar: React.FC = (props) => {
     }
   `);
   return (
-    <Grid {...props} variant={'navGrid'}>
-      <Logo sx={{ gridColumn: '1 / span 2', variant: 'logos.nav' }} />
-      <div
-        css={{
-          gridColumn: '3 / span 6',
-          textAlign: 'right',
-        }}
-      >
-        {navBarLinks.map(({ name, url }, idx) => (
-          <Link key={idx} to={url} sx={{ variant: 'links.navLink' }}>
-            {name}
-          </Link>
-        ))}
-      </div>
-    </Grid>
+    <nav>
+      <Grid {...props} variant={'navGrid'}>
+        <Logo sx={{ gridColumn: '1 / span 2', variant: 'logos.nav' }} />
+        <div
+          css={{
+            gridColumn: '3 / span 6',
+            textAlign: 'right',
+          }}
+        >
+          {navBarLinks.map(({ name, url }, idx) => (
+            <Link key={idx} to={url} sx={{ variant: 'links.navLink' }}>
+              {name}
+            </Link>
+          ))}
+        </div>
+      </Grid>
+    </nav>
   );
 };
 export { NavBar };
