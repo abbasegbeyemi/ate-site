@@ -16,7 +16,7 @@ const theme = {
     actionTextAlt: '#acdcef',
     text: '#0f2022',
     link: '#c3ecf6',
-    pagelink: '#1d545a',
+    pagelink: '#961c30',
     background: '#fff',
     footerColor: '#007d9f',
   },
