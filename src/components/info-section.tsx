@@ -34,8 +34,12 @@ const useInfoSectionImages: InfoSectionImagesProps = () => {
   `);
   return images;
 };
-
+// Require is not quite react, but tsx. Considering that we have already declared
+// the module in our declarations.d.ts file, we could just as easily have used the
+// normal import syntax to import the YAMl. I'll leave require here because
+// I think it is cool.
 const infoData = require('@/data/info-section-data.yaml');
+
 const InfoSection: React.FC = () => {
   const { content } = infoData;
   const images = useInfoSectionImages();

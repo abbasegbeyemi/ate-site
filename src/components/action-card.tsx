@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from 'react';
-import { jsx, Grid, Heading, Box } from 'theme-ui';
+import { jsx, Grid, Heading } from 'theme-ui';
 import Img, { FluidObject } from 'gatsby-image';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
