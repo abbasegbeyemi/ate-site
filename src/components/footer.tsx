@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Grid, jsx, Link } from 'theme-ui';
+import { Grid, Heading, jsx, Link } from 'theme-ui';
 import React from 'react';
 import { BottomWave } from './waves';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -59,9 +59,24 @@ const Footer: React.FC = () => {
           </p>
           <div
             sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gridRow: 2,
+              gridColumn: '1 / span 8',
+            }}
+          >
+            <Heading as={'h2'} sx={{ color: 'headerTitle' }}>
+              African Tech Enthusiasts
+            </Heading>
+            <Heading as={'h3'} sx={{ color: 'headerSubtitle' }}>
+              Empowering african youth through technology
+            </Heading>
+          </div>
+          <div
+            sx={{
               fontSize: 0,
               mt: 2,
-              gridRow: 2,
+              gridRow: 3,
               gridColumn: '1 / span 8',
             }}
           >
