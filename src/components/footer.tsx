@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
         variant: 'layout.footer',
       }}
     >
-      <BottomWave className={'wavySvg'} />
+      {/*<BottomWave className={'wavySvg'} />*/}
       <div id={'container'}>
         <Grid variant={'footerGrid'}>
           <Logo
