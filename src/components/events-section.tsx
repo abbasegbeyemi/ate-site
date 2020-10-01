@@ -2,12 +2,12 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { PageSection } from '@/components/page-section';
 
-const TeamSection: React.FC = () => {
+const EventsSection: React.FC = () => {
   const {
     allFile: { images },
   } = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativeDirectory: { regex: "/team/" } }) {
+      allFile(filter: { relativeDirectory: { regex: "/events/" } }) {
         images: edges {
           node {
             name
@@ -27,17 +27,19 @@ const TeamSection: React.FC = () => {
       }
     }
   `);
-  const teamData = require('@/data/bio-section-data.yaml');
-  const { content } = teamData;
+  const eventsData = require('@/data/events-section-data.yaml');
+  const { content } = eventsData;
 
   return (
     <PageSection
       content={content}
       images={images}
-      title={'The Team'}
-      type={'bio'}
+      title={'Events'}
+      linksTitle={'Links:'}
+      imageAnimation={'flip-left'}
+      type={'events'}
     />
   );
 };
 
-export { TeamSection };
+export { EventsSection };

@@ -17,12 +17,6 @@ const siteMetadata = {
       url: 'https://www.youtube.com/channel/UCdc5VTFzZQh1laVievU4gow',
     },
   ],
-  navBarLinks: [
-    {
-      name: 'Events',
-      url: '/events',
-    },
-  ],
 };
 
 const plugins = [

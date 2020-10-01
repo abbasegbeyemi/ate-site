@@ -3,11 +3,11 @@ import * as React from 'react';
 import { FluidObject } from 'gatsby-image';
 import { ActionCard } from '@/components/action-card';
 
-export type ImagesProps = () => Array<{
+export type ImageProps = Array<{
   node: { name: string; childImageSharp: { fluid: FluidObject } };
 }>;
 
-const useInfoSectionImages: ImagesProps = () => {
+const useAboutSectionImages: () => ImageProps = () => {
   const {
     allFile: { images },
   } = useStaticQuery(graphql`
@@ -38,11 +38,11 @@ const useInfoSectionImages: ImagesProps = () => {
 // the module in our declarations.d.ts file, we could just as easily have used the
 // normal import syntax to import the YAMl. I'll leave require here because
 // I think it is cool.
-const infoData = require('@/data/info-section-data.yaml');
+const aboutData = require('@/data/info-section-data.yaml');
 
-const InfoSection: React.FC = () => {
-  const { content } = infoData;
-  const images = useInfoSectionImages();
+const AboutSection: React.FC = () => {
+  const { content } = aboutData;
+  const images = useAboutSectionImages();
 
   return (
     <section>
@@ -69,4 +69,4 @@ const InfoSection: React.FC = () => {
   );
 };
 
-export { InfoSection };
+export { AboutSection };

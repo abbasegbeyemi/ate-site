@@ -92,6 +92,10 @@ const theme = {
       fontSize: [0, null, 1, 3],
       color: 'accent',
     },
+    eventsText: {
+      variant: 'text.bioText',
+      color: 'text',
+    },
   },
   links: {
     footerLink: {
@@ -185,6 +189,36 @@ const theme = {
     },
   },
   layout: {
+    bio: {
+      image: {
+        gridColumn: ['1 / span 2', null, '1 / span 3', null],
+        borderRadius: (theme) => theme.radii.lg,
+        overflow: 'hidden',
+        boxShadow: (theme) => theme.shadows['2xl'],
+      },
+      text: {
+        gridColumn: ['3 / span 6', null, '4 /span 5', null],
+        px: [2, null, 5, null],
+        display: 'flex',
+        flexDirection: 'column',
+      },
+    },
+    events: {
+      image: {
+        gridRow: 1,
+        gridColumn: ['1 / span 8', null, null, '1 / span 3'],
+        borderRadius: (theme) => theme.radii.lg,
+        overflow: 'hidden',
+        boxShadow: (theme) => theme.shadows['2xl'],
+      },
+      text: {
+        gridRow: [2, null, null, 1],
+        gridColumn: ['1 / span 8', null, null, '4 /span 5'],
+        px: [2, null, 5, null],
+        display: 'flex',
+        flexDirection: 'column',
+      },
+    },
     header: {
       width: '100%',
       display: 'flex',

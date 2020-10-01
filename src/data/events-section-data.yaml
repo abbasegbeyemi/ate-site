@@ -1,0 +1,12 @@
+content:
+  - section:
+      name: 'face-rec'
+      title: 'Introduction to Artificial Intelligence and Machine Learning (Webinar)'
+      text: 'This webinar introduces artificial intelligence, and machine learning in very simple and easy to grasp terms.
+             Dr Temi Sam-Odusina explains and takes us through the process of recognising faces using the python face recognition library,
+             and Dr Abbas Egbeyemi takes us through building a simple facial recognition application with Python.'
+      date: '05/09/2020 | 6 pm (West Africa Time)'
+      links:
+        - link:
+            name: 'Youtube'
+            url: 'https://www.linkedin.com/in/temi-odusina'

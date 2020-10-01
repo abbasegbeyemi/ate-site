@@ -1,18 +1,31 @@
 content:
   - section:
       name: 'temi'
-      fullname: 'Dr Temitope Sam-Odusina'
-      bio: 'Computer Vision Engineer and Software Developer'
-      linkedin: 'https://www.linkedin.com/in/temi-odusina'
+      title: 'Dr Temitope Sam-Odusina'
+      text: 'Computer Vision Engineer and Software Developer'
+      links:
+        - link:
+            name: 'Linkedin'
+            url: 'https://www.linkedin.com/in/temi-odusina'
   - section:
       name: 'ade'
-      fullname: 'Dr Adeayo Sotayo'
-      bio: 'Engineer and Researcher'
-      linkedin: 'https://www.linkedin.com/in/adeayosotayo'
-      website: 'https://www.drsotayo.com'
+      title: 'Dr Adeayo Sotayo'
+      text: 'Engineer and Researcher'
+      links:
+        - link:
+            name: 'Linkedin'
+            url: 'https://www.linkedin.com/in/adeayosotayo'
+        - link:
+            name: 'Website'
+            url: 'https://www.drsotayo.com'
   - section:
       name: 'abbas'
-      fullname: 'Dr Abbas Egbeyemi'
-      bio: 'Engineer and Software Developer'
-      linkedin: 'https://www.linkedin.com/in/abbasegbeyemi'
-      website: 'https://abbasegbeyemi.me'
+      title: 'Dr Abbas Egbeyemi'
+      text: 'Engineer and Software Developer'
+      links:
+        - link:
+            name: 'Linkedin'
+            url: 'https://www.linkedin.com/in/abbasegbeyemi'
+        - link:
+            name: 'Website'
+            url: 'https://abbasegbeyemi.me'

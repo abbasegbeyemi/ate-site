@@ -1,7 +1,7 @@
 {
   "name": "ate-site",
   "description": "A TypeScript starter for Gatsby that includes all you need to build amazing projects",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "author": "Abbas Egbeyemi <ae@abbasegbeyemi.me> (abbasegbeyemi.me)",
   "license": "MIT",
