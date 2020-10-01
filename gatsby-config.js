@@ -1,9 +1,11 @@
+const siteUrl = 'https://theatenetwork.com';
 const siteMetadata = {
   siteTitle: 'African Tech Enthusiasts',
   siteDescription:
     'African tech enthusiasts. Empowering african youth through technology',
   siteAuthor: '@sheybass',
-  siteUrl: 'https://theatenetwork.com',
+  siteUrl: siteUrl,
+  siteImage: `${siteUrl}/icons/icon_512x512.png`,
   siteKeywords: ['technology', 'africa', 'youth', 'community', 'network'],
   social: [
     {
@@ -32,7 +34,6 @@ const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
   'gatsby-plugin-react-helmet',
-  'gatsby-plugin-offline',
   'gatsby-plugin-sass',
   'gatsby-transformer-yaml',
   {
@@ -70,15 +71,28 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Abbas Egbeyemi's Website`,
-      short_name: `Dr. Abbas`,
+      name: `African Tech Enthusiasts`,
+      short_name: `theATEnetwork`,
       start_url: `/`,
       background_color: `#029E9E`,
       theme_color: `#029E9E`,
       display: `minimal-ui`,
       icon: `./src/images/logo-circled.png`, // This path is relative to the root of the site.
+      icons: [
+        {
+          src: 'icons/icon_512x512.png',
+          sizes: '512x512',
+          types: 'image/png',
+        },
+        {
+          src: 'icons/icon_192x192.png',
+          sizes: '192x192',
+          types: 'image/png',
+        },
+      ],
     },
   },
+  'gatsby-plugin-offline',
 ];
 
 module.exports = {

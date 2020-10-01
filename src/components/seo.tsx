@@ -27,6 +27,7 @@ const SEO: React.FC<SEOProps> = (props) => {
           siteAuthor
           siteUrl
           siteKeywords
+          siteImage
         }
       }
     }
@@ -40,7 +41,7 @@ const SEO: React.FC<SEOProps> = (props) => {
     siteAuthor,
     meta = [],
     siteKeywords,
-    // image,
+    siteimage,
   } = siteMetadata;
 
   const title = props.title;
