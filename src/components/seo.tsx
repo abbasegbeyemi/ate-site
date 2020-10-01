@@ -41,12 +41,12 @@ const SEO: React.FC<SEOProps> = (props) => {
     siteAuthor,
     meta = [],
     siteKeywords,
-    siteimage,
+    siteImage,
   } = siteMetadata;
 
   const title = props.title;
   const description = props.description || siteDescription;
-  // const siteImage = props.image || image;
+  const image = props.image || siteImage;
   const keywords = [...siteKeywords, props.keywords].join(',');
 
   const metaData = [
@@ -58,10 +58,10 @@ const SEO: React.FC<SEOProps> = (props) => {
       name: 'description',
       content: description,
     },
-    // {
-    //   name: 'image',
-    //   content: siteImage,
-    // },
+    {
+      name: 'image',
+      content: image,
+    },
     {
       name: 'og:url',
       content: siteUrl,
@@ -78,10 +78,10 @@ const SEO: React.FC<SEOProps> = (props) => {
       name: 'og:description',
       content: siteDescription,
     },
-    // {
-    //   name: 'og:image',
-    //   content: siteImage,
-    // },
+    {
+      name: 'og:image',
+      content: image,
+    },
     {
       name: 'twitter:card',
       content: 'summary_large_image',
@@ -98,10 +98,10 @@ const SEO: React.FC<SEOProps> = (props) => {
       name: 'twitter:description',
       content: siteDescription,
     },
-    // {
-    //   name: 'twitter:image',
-    //   content: siteImage,
-    // },
+    {
+      name: 'twitter:image',
+      content: image,
+    },
     {
       name: 'keywords',
       content: keywords,
