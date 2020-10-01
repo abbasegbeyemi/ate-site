@@ -3,11 +3,11 @@ import * as React from 'react';
 import { FluidObject } from 'gatsby-image';
 import { ActionCard } from '@/components/action-card';
 
-type InfoSectionImagesProps = () => Array<{
+export type ImagesProps = () => Array<{
   node: { name: string; childImageSharp: { fluid: FluidObject } };
 }>;
 
-const useInfoSectionImages: InfoSectionImagesProps = () => {
+const useInfoSectionImages: ImagesProps = () => {
   const {
     allFile: { images },
   } = useStaticQuery(graphql`
@@ -44,25 +44,29 @@ const InfoSection: React.FC = () => {
   const { content } = infoData;
   const images = useInfoSectionImages();
 
-  return content.map((c, index) => {
-    const { name, title, text } = c.section;
+  return (
+    <section>
+      {content.map((c, index) => {
+        const { name, title, text } = c.section;
 
-    const image = images.find((im) => im.node.name === name);
-    const {
-      node: {
-        childImageSharp: { fluid },
-      },
-    } = image;
-    return (
-      <ActionCard
-        image={fluid}
-        title={title}
-        text={text}
-        key={`${name}-${index}`}
-        idx={index}
-      />
-    );
-  });
+        const image = images.find((im) => im.node.name === name);
+        const {
+          node: {
+            childImageSharp: { fluid },
+          },
+        } = image;
+        return (
+          <ActionCard
+            image={fluid}
+            title={title}
+            text={text}
+            key={`${name}-${index}`}
+            idx={index}
+          />
+        );
+      })}
+    </section>
+  );
 };
 
 export { InfoSection };

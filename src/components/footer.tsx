@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               flexDirection: ['column', null, 'row', null],
             }}
           >
-            Connect with us:
+            Connect with ATE:
             {social.map(({ name, url }, idx) => (
               <Link
                 key={`${name}-${idx}`}

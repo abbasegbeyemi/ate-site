@@ -9,6 +9,7 @@ const theme = {
     ...tailwind.colors,
     headerTitle: '#ffffff',
     headerSubtitle: '#e7ddaa',
+    accent: '#deb60e',
     actionTitle: '#007d9f',
     actionText: '#0e2529',
     actionTitleAlt: '#4acdf1',
@@ -63,15 +64,33 @@ const theme = {
       textAlign: 'center',
       fontSize: ['inherit', null, 4, null],
     },
+    sectionTitle: {
+      variant: 'text.heading',
+      color: 'actionTitle',
+      textAlign: 'center',
+      fontSize: [3, null, 9, null],
+      my: [3, null, 4, null],
+    },
     actionTitle: {
       variant: 'text.heading',
       fontSize: [3, 4, null, 5],
-      color: ['actionTitleAlt', null, 'actionTitle', null],
+      color: ['actionTitleAlt', null, null, 'actionTitle'],
     },
     actionText: {
       variant: 'text.body',
       fontSize: [1, null, null, 2],
-      color: ['actionTextAlt', null, 'actionText', null],
+      color: ['actionTextAlt', null, null, 'actionText'],
+    },
+    bioTitle: {
+      variant: 'text.heading',
+      fontSize: [2, null, 3, 6],
+      color: 'actionTitle',
+    },
+    bioText: {
+      variant: 'text.body',
+      my: [1, null, 2, null],
+      fontSize: [0, null, 1, 3],
+      color: 'accent',
     },
   },
   links: {
@@ -82,7 +101,7 @@ const theme = {
       transition: 'color 0.25s',
 
       ':hover': {
-        color: 'pagelink',
+        color: 'accent',
       },
     },
     navLink: {
@@ -95,7 +114,7 @@ const theme = {
       color: 'pagelink',
 
       ':hover': {
-        color: 'footerColor',
+        color: 'accent',
       },
     },
   },
@@ -115,8 +134,8 @@ const theme = {
       ':hover': {
         '#Connectors, #Border': {
           path: {
-            fill: (theme) => `${theme.colors.pagelink} !important`,
-            stroke: 'pagelink',
+            fill: (theme) => `${theme.colors.accent} !important`,
+            stroke: 'accent',
           },
         },
       },
@@ -158,6 +177,12 @@ const theme = {
     footerGrid: {
       variant: 'grids.navGrid',
     },
+    bioGrid: {
+      variant: 'grids.singleRow',
+      alignItems: 'center',
+      px: [1, 4, null, 5],
+      my: [2, null, 5, null],
+    },
   },
   layout: {
     header: {
@@ -169,8 +194,6 @@ const theme = {
       '.wavySvg': {
         width: '100%',
         flexShrink: 0,
-        // flex: '0 0 auto',
-        // position: 'relative',
         display: 'flex',
 
         svg: {
@@ -193,7 +216,6 @@ const theme = {
       flexDirection: 'column',
       '.wavySvg': {
         width: '100%',
-        // flex: '1 0',
         display: 'flex',
         svg: {
           flex: '1 0 auto',
@@ -205,7 +227,7 @@ const theme = {
       '#container': {
         fontSize: [0, null, 3, null],
         color: 'text',
-        flex: '1 0 auto',
+        flexShrink: 0,
         textAlign: 'center',
         py: 1,
         bg: 'footerColor',

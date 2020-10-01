@@ -22,10 +22,6 @@ const siteMetadata = {
       name: 'Events',
       url: '/events',
     },
-    {
-      name: 'Team',
-      url: '/our-team',
-    },
   ],
 };
 

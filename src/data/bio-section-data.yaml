@@ -1,0 +1,18 @@
+content:
+  - section:
+      name: 'temi'
+      fullname: 'Dr Temitope Sam-Odusina'
+      bio: 'Computer Vision Engineer and Software Developer'
+      linkedin: 'https://www.linkedin.com/in/temi-odusina'
+  - section:
+      name: 'ade'
+      fullname: 'Dr Adeayo Sotayo'
+      bio: 'Engineer and Researcher'
+      linkedin: 'https://www.linkedin.com/in/adeayosotayo'
+      website: 'https://www.drsotayo.com'
+  - section:
+      name: 'abbas'
+      fullname: 'Dr Abbas Egbeyemi'
+      bio: 'Engineer and Software Developer'
+      linkedin: 'https://www.linkedin.com/in/abbasegbeyemi'
+      website: 'https://abbasegbeyemi.me'

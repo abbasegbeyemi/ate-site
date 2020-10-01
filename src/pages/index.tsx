@@ -4,6 +4,7 @@ import SEO from '@/components/seo';
 import Layout from '@/components/layout';
 import '@/style/base.scss';
 import { InfoSection } from '@/components/info-section';
+import { TeamSection } from '@/components/team-section';
 
 const Home: React.FC<PageProps> = () => {
   const title = 'African Tech Enthusiasts',
@@ -13,6 +14,7 @@ const Home: React.FC<PageProps> = () => {
       <SEO title={'Home'} />
       <Layout title={title} subtitle={subtitle}>
         <InfoSection />
+        <TeamSection />
       </Layout>
     </>
   );
