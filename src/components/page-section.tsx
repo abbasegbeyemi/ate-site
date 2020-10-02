@@ -8,8 +8,8 @@ type InfoType = Omit<InfoCardProps, 'image' | 'linksTitle' | 'imageAmination'>;
 interface IPageSection {
   content: [{ section: InfoType & { name: string } }];
   images: ImageProps;
-  title?: string;
-  type: string;
+  sectionTitle?: string;
+  cardType: string;
   linksTitle?: string;
   imageAnimation?: string;
 }
@@ -17,16 +17,16 @@ interface IPageSection {
 const PageSection: React.FC<IPageSection> = ({
   content,
   images,
-  title,
+  sectionTitle,
   linksTitle,
-  type,
+  cardType,
   imageAnimation,
 }) => {
   return (
     <section sx={{ display: 'flex', flexDirection: 'column' }}>
-      {title && (
+      {sectionTitle && (
         <Heading as={'h1'} variant={'sectionTitle'}>
-          {title}
+          {sectionTitle}
         </Heading>
       )}
       {content.map((c, idx) => {
@@ -39,7 +39,7 @@ const PageSection: React.FC<IPageSection> = ({
         } = image;
         return (
           <InfoCard
-            type={type}
+            type={cardType}
             key={`${name}-${idx}`}
             title={title}
             text={text}
