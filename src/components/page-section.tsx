@@ -30,7 +30,6 @@ const PageSection: React.FC<IPageSection> = ({
         </Heading>
       )}
       {content.map((c, idx) => {
-        console.log(c);
         const { name, title, text, links, date } = c.section;
         const image = images.find((im) => im.node.name === name);
         const {

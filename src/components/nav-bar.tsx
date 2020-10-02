@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import * as React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
 import { jsx, Grid } from 'theme-ui';
 import Logo from '@/components/logo';
 
