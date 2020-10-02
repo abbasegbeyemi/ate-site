@@ -37,6 +37,7 @@ const ActionCard: React.FC<ActionCardProps> = ({ text, title, image, idx }) => {
               width: '100%',
               height: '100%',
             }}
+            alt={title}
             fluid={image}
             imgStyle={{ objectFit: 'cover' }}
           />

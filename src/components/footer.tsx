@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Grid, Heading, jsx, Link } from 'theme-ui';
 import React from 'react';
-import { BottomWave } from './waves';
+// import { BottomWave } from './waves';
 import { useStaticQuery, graphql } from 'gatsby';
 import Logo from './logo';
 

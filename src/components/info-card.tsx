@@ -31,7 +31,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
           variant: `layout.${type}.image`,
         }}
       >
-        <Img fluid={image} imgStyle={{ objectFit: 'cover' }} />
+        <Img alt={title} fluid={image} imgStyle={{ objectFit: 'cover' }} />
       </div>
       <div
         data-aos={'fade-left'}
