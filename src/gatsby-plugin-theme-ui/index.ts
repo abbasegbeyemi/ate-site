@@ -223,7 +223,7 @@ const theme = {
     header: {
       width: '100%',
       display: 'flex',
-      flex: 'auto',
+      flex: '1 0 auto',
       flexDirection: 'column',
       bg: 'footerColor',
       '.wavySvg': {
