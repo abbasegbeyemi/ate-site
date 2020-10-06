@@ -21,7 +21,6 @@ const Header: React.FC<IHeaderProps> = ({ title, subtitle }) => (
       <div
         css={{
           gridColumn: '1 / span 8',
-          gridRow: '2',
         }}
       >
         <Heading as={'h1'} variant={'headerTitle'}>
@@ -34,7 +33,7 @@ const Header: React.FC<IHeaderProps> = ({ title, subtitle }) => (
         )}
       </div>
     </Grid>
-    <BottomWave className={'wavySvg'} />
+    {/*<BottomWave className={'wavySvg'} />*/}
   </header>
 );
 

@@ -157,13 +157,14 @@ const theme = {
     navGrid: {
       variant: 'grids.singleRow',
       mb: [2, null, 3, null],
-      mt: [4, null, 5, null],
+      mt: [2, null, 2, null],
       justifyContent: 'center',
       alignItems: 'center',
     },
     headerGrid: {
       variant: 'grids.singleRow',
-      my: 2,
+      mt: 2,
+      mb: [5, null, 6, null]
     },
     actionGrid: {
       variant: 'grids.singleRow',
@@ -222,16 +223,17 @@ const theme = {
     header: {
       width: '100%',
       display: 'flex',
-      flex: '1 0 auto',
+      flex: 'auto',
       flexDirection: 'column',
       bg: 'footerColor',
       '.wavySvg': {
         width: '100%',
-        flexShrink: 0,
+        height: '30%',
         display: 'flex',
 
         svg: {
-          flex: '1 0 auto',
+          height: '100%',
+          // width: '100%',
           path: {
             fill: 'background',
           },
@@ -240,7 +242,6 @@ const theme = {
       '#container': {
         variant: 'grids.headerGrid',
         color: 'titleText',
-        flex: '1 0 auto',
       },
     },
     footer: {
