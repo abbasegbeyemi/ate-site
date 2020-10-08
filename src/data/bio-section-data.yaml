@@ -16,7 +16,7 @@ content:
             name: 'Linkedin'
             url: 'https://www.linkedin.com/in/adeayosotayo'
         - link:
-            name: 'Website'
+            name: 'Personal Website'
             url: 'https://www.drsotayo.com'
   - section:
       name: 'abbas'
@@ -27,5 +27,5 @@ content:
             name: 'Linkedin'
             url: 'https://www.linkedin.com/in/abbasegbeyemi'
         - link:
-            name: 'Website'
+            name: 'Personal Website'
             url: 'https://abbasegbeyemi.me'

@@ -16,6 +16,10 @@ const siteMetadata = {
       name: 'Youtube',
       url: 'https://www.youtube.com/channel/UCdc5VTFzZQh1laVievU4gow',
     },
+    {
+      name: 'Email',
+      url: 'mailto: afri.techent@gmail.com',
+    }
   ],
 };
 
