@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { BottomWave } from '@/components/waves';
+// import { BottomWave } from '@/components/waves';
 import React from 'react';
 import { jsx, Grid, Heading } from 'theme-ui';
 import { NavBar } from './nav-bar';

@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               African Tech Enthusiasts
             </Heading>
             <Heading as={'h3'} sx={{ color: 'headerSubtitle' }}>
-              Empowering african youth through technology
+              Empowering African youth through technology
             </Heading>
           </div>
           <div

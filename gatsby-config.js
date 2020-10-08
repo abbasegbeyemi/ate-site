@@ -2,7 +2,7 @@ const siteUrl = 'https://theatenetwork.com';
 const siteMetadata = {
   siteTitle: 'African Tech Enthusiasts',
   siteDescription:
-    'African tech enthusiasts. Empowering african youth through technology',
+    'African tech enthusiasts. Empowering African youth through technology',
   siteAuthor: '@sheybass',
   siteUrl: siteUrl,
   siteImage: `${siteUrl}/icons/icon_512x512.png`,

@@ -9,7 +9,7 @@ import { EventsSection } from '@/components/events-section';
 
 const Home: React.FC<PageProps> = () => {
   const title = 'African Tech Enthusiasts',
-    subtitle = 'Empowering african youth through technology';
+    subtitle = 'Empowering African youth through technology';
   return (
     <>
       <SEO title={'Home'} />

@@ -34,10 +34,10 @@ const EventsSection: React.FC = () => {
     <PageSection
       content={content}
       images={images}
-      title={'Events'}
+      sectionTitle={'Events'}
       linksTitle={'Links:'}
       imageAnimation={'flip-left'}
-      type={'events'}
+      cardType={'events'}
     />
   );
 };

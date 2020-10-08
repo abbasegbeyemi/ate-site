@@ -34,8 +34,8 @@ const TeamSection: React.FC = () => {
     <PageSection
       content={content}
       images={images}
-      title={'The Team'}
-      type={'bio'}
+      sectionTitle={'The Team'}
+      cardType={'bio'}
     />
   );
 };
