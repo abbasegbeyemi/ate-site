@@ -34,7 +34,7 @@ const useAboutSectionImages: () => ImageProps = () => {
   `);
   return images;
 };
-// Require is not quite react, but tsx. Considering that we have already declared
+// Require is not quite react, but node. Considering that we have already declared
 // the module in our declarations.d.ts file, we could just as easily have used the
 // normal import syntax to import the YAMl. I'll leave require here because
 // I think it is cool.

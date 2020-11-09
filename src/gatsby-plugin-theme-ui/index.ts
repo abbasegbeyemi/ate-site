@@ -164,7 +164,7 @@ const theme = {
     headerGrid: {
       variant: 'grids.singleRow',
       mt: 2,
-      mb: [5, null, 6, null]
+      mb: [5, null, 6, null],
     },
     actionGrid: {
       variant: 'grids.singleRow',

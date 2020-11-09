@@ -8,6 +8,7 @@ import * as React from 'react';
 
 const NotFound: React.FC<PageProps> = () => {
   const names = ['Ade', 'Temi', 'Yemi', 'Toyo', 'Allen', 'Ruki', 'Seyi'];
+  const culprit = sample(names);
   return (
     <React.Fragment>
       <SEO title={'404'} description={'404 Error page'} />
@@ -20,9 +21,7 @@ const NotFound: React.FC<PageProps> = () => {
               fontSize: ['inherit', null, 3, null],
             }}
           >
-            {`There isn't quite a page here yet. ${sample(
-              names,
-            )} messed up. Head back to `}
+            {`There isn't quite a page here yet. ${culprit} messed up. Head back to `}
             <Link sx={{ variant: 'links.pageLink' }} to={'/'}>
               Civilization.
             </Link>
