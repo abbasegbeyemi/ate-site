@@ -20,13 +20,13 @@ const InfoCard: React.FC<InfoCardProps> = ({
   type,
   date,
   links,
-  linksTitle,
-  imageAnimation,
+  linksTitle = 'Connect: ',
+  imageAnimation = 'fade-right',
 }) => {
   return (
     <Grid variant={'bioGrid'}>
       <div
-        data-aos={imageAnimation || 'fade-right'}
+        data-aos={imageAnimation}
         sx={{
           variant: `layout.${type}.image`,
         }}
@@ -56,7 +56,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
               fontSize: [0, null, null, 2],
             }}
           >
-            {linksTitle || 'Connect: '}
+            {linksTitle}
             {links.map((l, idx) => {
               const { name, url } = l.link;
               return (
