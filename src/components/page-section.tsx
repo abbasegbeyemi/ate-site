@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import * as React from 'react';
-import { Heading } from 'theme-ui';
+import { jsx, Heading } from 'theme-ui';
 import { InfoCard, InfoCardProps } from '@/components/info-card';
 import { ImageProps } from '@/components/about-section';
 

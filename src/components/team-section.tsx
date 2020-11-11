@@ -1,4 +1,6 @@
+/** @jsx jsx */
 import * as React from 'react';
+import { jsx } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import { PageSection } from '@/components/page-section';
 
