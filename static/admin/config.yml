@@ -1,9 +1,8 @@
 local_backend: true
 
 backend:
-  name: test-repo
-#  name: git-gateway
-#  branch: master
+  name: git-gateway
+  branch: master
 
 media_folder: static/img
 public_folder: /img
@@ -24,6 +23,28 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Author Username', name: 'author', widget: 'string' }
       - { label: 'Header Image', name: 'image', widget: 'image', allow_multiple: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'bios'
+    label: 'Bios'
+    extension: 'mdx'
+    format: 'frontmatter'
+    folder: 'content/bios'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Username', name: 'username', widget: 'string' }
+      - { label: 'Full Name', name: 'name', widget: 'string' }
+      - { label: 'Profile Picture', name: 'image', widget: 'image', allow_multiple: false }
+      - { label: 'Bio', name: 'body', widget: 'markdown' }
+
+
+
+

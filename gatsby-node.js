@@ -12,13 +12,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-
 // Add a slug field for each mdx file
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `content/` });
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: `content/`,
+      trailingSlash: false,
+    });
     const parent = getNode(node.parent).sourceInstanceName;
     createNodeField({
       node,
@@ -61,7 +65,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
         frontmatter: { template },
       } = node;
 
-      let temp = template === null ? 'basepage' : template;
+      let temp = template === null ? 'default' : template;
 
       createPage({
         path: slug,

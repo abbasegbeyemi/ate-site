@@ -6,6 +6,7 @@ import '@/style/base.scss';
 import { AboutSection } from '@/components/sections/about-section';
 import { TeamSection } from '@/components/sections/team-section';
 import { EventsSection } from '@/components/sections/events-section';
+import ArticlesSection from '@/components/sections/articles-section';
 
 const Home: React.FC<PageProps> = () => {
   const title = 'African Tech Enthusiasts',
@@ -14,9 +15,8 @@ const Home: React.FC<PageProps> = () => {
     <>
       <SEO title={'Home'} />
       <Layout title={title} subtitle={subtitle}>
-        {/*<AboutSection />*/}
-        {/*<EventsSection />*/}
-        {/*<TeamSection />*/}
+        <AboutSection />
+        <ArticlesSection />
       </Layout>
     </>
   );

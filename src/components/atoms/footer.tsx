@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               flexDirection: ['column', null, null, 'column'],
             }}
           >
-            Connect with ATE:
+            <p sx={{ color: 'white', p: 0, m: 0 }}>Connect with ATE:</p>
             {social.map(({ name, url }, idx) => (
               <Link
                 key={`${name}-${idx}`}
@@ -75,6 +75,7 @@ const Footer: React.FC = () => {
           <div
             sx={{
               fontSize: 0,
+              color: 'white',
               mt: 2,
               gridRow: [3, null, null, 2],
               gridColumn: '1 / span 8',

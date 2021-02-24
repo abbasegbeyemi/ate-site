@@ -26,7 +26,7 @@ const Articles: React.FC<PageProps> = ({ data }) => {
     <React.Fragment>
       <SEO title={pageTitle} description={pageDescription} />
       <Layout title={pageTitle}>
-        {edges.map(({node}, idx) => (
+        {edges.map(({ node }, idx) => (
           <ListPageCard
             key={`${pageTitle}-${idx}`}
             timeToRead={node.timeToRead}

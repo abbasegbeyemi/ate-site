@@ -18,7 +18,7 @@ const siteMetadata = {
     },
     {
       name: 'The Team',
-      url: '/the-team',
+      url: '/bios',
     },
   ],
   social: [

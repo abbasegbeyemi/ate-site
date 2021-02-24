@@ -46,11 +46,32 @@ const theme = {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
+
+      a: {
+        color: 'inherit',
+        ':hover': {
+          color: 'pagelink',
+        },
+      },
+    },
+    subHeading: {
+      fontFamily: 'heading',
+      lineHeight: 'normal',
+      fontWeight: 'medium',
     },
     body: {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
+    },
+    light: {
+      variant: 'text.body',
+      fontWeight: 'light',
+      color: 'textMuted',
+    },
+    listLight: {
+      variant: 'text.light',
+      fontSize: [0, null, null, 1],
     },
     headerTitle: {
       variant: 'text.heading',
@@ -85,6 +106,11 @@ const theme = {
       variant: 'text.heading',
       fontSize: [2, null, 3, 6],
       color: 'actionTitle',
+    },
+    bioSubtitle: {
+      variant: 'text.subHeading',
+      fontSize: [1, null, 2, 5],
+      color: 'accent',
     },
     bioText: {
       variant: 'text.body',
@@ -202,13 +228,14 @@ const theme = {
   layout: {
     bio: {
       image: {
-        gridColumn: ['1 / span 2', null, '1 / span 3', null],
+        // gridColumn: ['1 / span 2', null, '1 / span 3', null],
+        gridColumn: ['1 / span 2'],
         borderRadius: (theme) => theme.radii.lg,
         overflow: 'hidden',
         boxShadow: (theme) => theme.shadows['2xl'],
       },
       text: {
-        gridColumn: ['3 / span 6', null, '4 /span 5', null],
+        gridColumn: ['3 / span 6'],
         px: [2, null, 5, null],
         display: 'flex',
         flexDirection: 'column',

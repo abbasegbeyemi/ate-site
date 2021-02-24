@@ -22,7 +22,6 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
     <div
       sx={{
         my: 3,
-        p: 2,
         display: 'flex',
         // boxShadow: (theme) => theme.shadows.lg,
         mx: 'auto',
@@ -41,7 +40,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
       <div
         sx={{
           display: 'flex',
-          justifyContent: 'space-around',
+          justifyContent: 'center',
           flexDirection: 'column',
           ml: 2,
           color: 'textMuted',
@@ -53,6 +52,8 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
         <p
           sx={{
             m: 0,
+            p: 0,
+            variant: 'text.listLight',
           }}
         >
           {date} || {`${timeToRead} minute read`}

@@ -2,11 +2,11 @@
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { jsx, Box, Heading } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import Layout from '@/components/atoms/layout';
 import SEO from '@/components/atoms/seo';
 import React from 'react';
-import Img, { FluidObject, GatsbyImageProps } from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 import AuthorCard from '@/components/atoms/author-card';
 
 export type GatsbyImageFluid = {
@@ -108,7 +108,7 @@ export const pageQuery = graphql`
   fragment ArticleDataFragment on Mdx {
     body
     timeToRead
-    excerpt
+    excerpt(pruneLength: 200)
     frontmatter {
       title
       date(formatString: "MMMM, YYYY")
