@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Link, PageProps } from 'gatsby';
-import SEO from '@/components/seo';
-import Layout from '@/components/layout';
+import SEO from '@/components/atoms/seo';
+import Layout from '@/components/atoms/layout';
 import { sample } from 'lodash';
 import { jsx, Grid } from 'theme-ui';
 import * as React from 'react';

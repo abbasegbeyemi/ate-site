@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { jsx } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
-import { PageSection } from '@/components/page-section';
+import { PageSection } from '@/components/sections/page-section';
 
 const TeamSection: React.FC = () => {
   const {
@@ -36,7 +36,7 @@ const TeamSection: React.FC = () => {
     <PageSection
       content={content}
       images={images}
-      sectionTitle={'The Team'}
+      // sectionTitle={'The Team'}
       cardType={'bio'}
     />
   );

@@ -8,7 +8,7 @@ content:
             name: 'Linkedin'
             url: 'https://www.linkedin.com/in/temi-odusina'
   - section:
-      name: 'ade'
+      name: 'adeayosotayo'
       title: 'Dr Adeayo Sotayo'
       text: 'Engineer and Researcher'
       links:
@@ -19,7 +19,7 @@ content:
             name: 'Personal Website'
             url: 'https://www.drsotayo.com'
   - section:
-      name: 'abbas'
+      name: 'abbasegbeyemi'
       title: 'Dr Abbas Egbeyemi'
       text: 'Engineer and Software Developer'
       links:

@@ -2,20 +2,22 @@
 import * as React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import { Grid, Heading, jsx, Link } from 'theme-ui';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-export type InfoCardProps = {
-  title: string;
-  text: string;
+export type DetailPageCardProps = {
+  title?: string;
+  body: string;
   image: FluidObject;
   type: string;
   date?: string;
-  links?: [{ link: { name: string; url: string } }];
+  links?: [{ name: string; url: string }];
   linksTitle?: string;
   imageAnimation?: string;
 };
-const InfoCard: React.FC<InfoCardProps> = ({
+const DetailPageCard: React.FC<DetailPageCardProps> = ({
   title,
-  text,
+  body,
   image,
   type,
   date,
@@ -23,6 +25,28 @@ const InfoCard: React.FC<InfoCardProps> = ({
   linksTitle = 'Connect: ',
   imageAnimation = 'fade-right',
 }) => {
+  const components = {
+    p: ({ children, ...props }) => (
+      <p
+        {...props}
+        sx={{
+          variant: `text.${type}Text`,
+        }}
+      >
+        {children}
+      </p>
+    ),
+    a: ({ children, ...props }) => (
+      <a
+        {...props}
+        sx={{ variant: 'pageLink' }}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {children}
+      </a>
+    ),
+  };
   return (
     <Grid variant={'bioGrid'}>
       <div
@@ -39,10 +63,14 @@ const InfoCard: React.FC<InfoCardProps> = ({
           variant: `layout.${type}.text`,
         }}
       >
-        <Heading as={'h3'} variant={'bioTitle'}>
-          {title}
-        </Heading>
-        <p sx={{ variant: `text.${type}Text` }}>{text}</p>
+        {title && (
+          <Heading as={'h3'} variant={'bioTitle'}>
+            {title}
+          </Heading>
+        )}
+        <MDXProvider components={components}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
         {date && (
           <p sx={{ variant: `text.${type}Text`, color: 'accent' }}>
             Date: {date}
@@ -57,8 +85,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
             }}
           >
             {linksTitle}
-            {links.map((l, idx) => {
-              const { name, url } = l.link;
+            {links.map(({ name, url }, idx) => {
               return (
                 <Link
                   key={`${name}-${idx}`}
@@ -78,4 +105,4 @@ const InfoCard: React.FC<InfoCardProps> = ({
   );
 };
 
-export { InfoCard };
+export { DetailPageCard };

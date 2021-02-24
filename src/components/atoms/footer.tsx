@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               justifySelf: 'right',
               textAlign: 'right',
               display: 'flex',
-              flexDirection: ['column', null, 'row', null],
+              flexDirection: ['column', null, null, 'column'],
             }}
           >
             Connect with ATE:
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              gridRow: 2,
+              gridRow: [2, null, null, 1],
               gridColumn: '1 / span 8',
             }}
           >
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
             sx={{
               fontSize: 0,
               mt: 2,
-              gridRow: 3,
+              gridRow: [3, null, null, 2],
               gridColumn: '1 / span 8',
             }}
           >

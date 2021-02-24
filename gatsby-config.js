@@ -1,12 +1,26 @@
-const siteUrl = 'https://theatenetwork.com';
+const url = 'https://theatenetwork.com';
 const siteMetadata = {
-  siteTitle: 'African Tech Enthusiasts',
-  siteDescription:
+  title: 'African Tech Enthusiasts',
+  description:
     'African tech enthusiasts. Empowering African youth through technology',
-  siteAuthor: '@sheybass',
-  siteUrl: siteUrl,
-  siteImage: `${siteUrl}/icons/icon_512x512.png`,
-  siteKeywords: ['technology', 'africa', 'youth', 'community', 'network'],
+  author: '@sheybass',
+  url: url,
+  image: `${url}/icons/icon_512x512.png`,
+  keywords: ['technology', 'africa', 'youth', 'community', 'network'],
+  navbarLinks: [
+    {
+      name: 'Articles',
+      url: '/articles',
+    },
+    {
+      name: 'Events',
+      url: '/events',
+    },
+    {
+      name: 'The Team',
+      url: '/the-team',
+    },
+  ],
   social: [
     {
       name: 'LinkedIn',
@@ -19,7 +33,7 @@ const siteMetadata = {
     {
       name: 'Email',
       url: 'mailto: afri.techent@gmail.com',
-    }
+    },
   ],
 };
 
@@ -30,22 +44,70 @@ const plugins = [
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sass',
   'gatsby-transformer-yaml',
+  'gatsby-plugin-netlify-cms',
+  'gatsby-plugin-remove-trailing-slashes',
   {
-    resolve: `gatsby-source-filesystem`,
+    resolve: 'gatsby-plugin-mdx',
+    options: {
+      defaultLayouts: {
+        default: require.resolve('./src/templates/default-template.tsx'),
+      },
+      gatsbyRemarkPlugins: [
+        'gatsby-remark-unwrap-images',
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 1380,
+          },
+        },
+      ],
+      plugins: [
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            backgroundColor: 'transparent',
+          },
+        },
+      ],
+    },
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'bios',
+      path: `${__dirname}/content/bios`,
+    },
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'articles',
+      path: `${__dirname}/content/articles`,
+    },
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'events',
+      path: `${__dirname}/content/events`,
+    },
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
     options: {
       path: `${__dirname}/src/images`,
       name: 'images',
     },
   },
   {
-    resolve: `gatsby-source-filesystem`,
+    resolve: 'gatsby-source-filesystem',
     options: {
       path: `${__dirname}/src/data`,
       name: 'site-data',
     },
   },
   {
-    resolve: `gatsby-plugin-react-svg`,
+    resolve: 'gatsby-plugin-react-svg',
     options: {
       rule: {
         include: /\.inline\.svg$/,
@@ -89,7 +151,13 @@ const plugins = [
   'gatsby-plugin-offline',
 ];
 
+const mapping = {
+  'Mdx.frontmatter.author': 'Mdx.frontmatter.username',
+  'Mdx.frontmatter.contributors': 'Mdx.frontmatter.username',
+};
+
 module.exports = {
   plugins: plugins,
   siteMetadata: siteMetadata,
+  mapping: mapping,
 };

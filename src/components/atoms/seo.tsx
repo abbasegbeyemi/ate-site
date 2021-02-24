@@ -22,12 +22,12 @@ const SEO: React.FC<SEOProps> = (props) => {
     {
       site {
         siteMetadata {
-          siteTitle
-          siteDescription
-          siteAuthor
-          siteUrl
-          siteKeywords
-          siteImage
+          title
+          description
+          author
+          url
+          keywords
+          image
         }
       }
     }
@@ -35,13 +35,13 @@ const SEO: React.FC<SEOProps> = (props) => {
   const { siteMetadata } = data.site;
 
   const {
-    siteTitle,
-    siteDescription,
-    siteUrl,
-    siteAuthor,
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    author: siteAuthor,
     meta = [],
-    siteKeywords,
-    siteImage,
+    keywords: siteKeywords,
+    image: siteImage,
   } = siteMetadata;
 
   const title = props.title;

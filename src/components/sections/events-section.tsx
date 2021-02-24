@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { PageSection } from '@/components/page-section';
+import { PageSection } from '@/components/sections/page-section';
 
 const EventsSection: React.FC = () => {
   const {
@@ -34,7 +34,6 @@ const EventsSection: React.FC = () => {
     <PageSection
       content={content}
       images={images}
-      sectionTitle={'Events'}
       linksTitle={'Links:'}
       imageAnimation={'flip-left'}
       cardType={'events'}

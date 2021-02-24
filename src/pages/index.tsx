@@ -1,11 +1,11 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
-import SEO from '@/components/seo';
-import Layout from '@/components/layout';
+import SEO from '@/components/atoms/seo';
+import Layout from '@/components/atoms/layout';
 import '@/style/base.scss';
-import { AboutSection } from '@/components/about-section';
-import { TeamSection } from '@/components/team-section';
-import { EventsSection } from '@/components/events-section';
+import { AboutSection } from '@/components/sections/about-section';
+import { TeamSection } from '@/components/sections/team-section';
+import { EventsSection } from '@/components/sections/events-section';
 
 const Home: React.FC<PageProps> = () => {
   const title = 'African Tech Enthusiasts',
@@ -14,9 +14,9 @@ const Home: React.FC<PageProps> = () => {
     <>
       <SEO title={'Home'} />
       <Layout title={title} subtitle={subtitle}>
-        <AboutSection />
-        <EventsSection />
-        <TeamSection />
+        {/*<AboutSection />*/}
+        {/*<EventsSection />*/}
+        {/*<TeamSection />*/}
       </Layout>
     </>
   );

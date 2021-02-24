@@ -2,9 +2,6 @@
 import * as React from 'react';
 import { jsx, Grid, Heading } from 'theme-ui';
 import Img, { FluidObject } from 'gatsby-image';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 import BackgroundImage from 'gatsby-background-image';
 
 type ActionCardProps = {
@@ -14,9 +11,7 @@ type ActionCardProps = {
   idx: number;
 };
 const ActionCard: React.FC<ActionCardProps> = ({ text, title, image, idx }) => {
-  useEffect(() => {
-    Aos.init({ duration: 1500 });
-  }, []);
+
   return (
     <React.Fragment>
       <Grid variant={'actionGrid'}>

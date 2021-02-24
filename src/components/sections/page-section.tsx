@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import * as React from 'react';
 import { jsx, Heading } from 'theme-ui';
-import { InfoCard, InfoCardProps } from '@/components/info-card';
-import { ImageProps } from '@/components/about-section';
+import { DetailPageCard, DetailPageCardProps } from '@/components/atoms/detail-page-card';
+import { ImageProps } from '@/components/sections/about-section';
 
-type InfoType = Omit<InfoCardProps, 'image' | 'linksTitle' | 'imageAmination'>;
+type InfoType = Omit<DetailPageCardProps, 'image' | 'linksTitle' | 'imageAmination'>;
 
 interface IPageSection {
   content: [{ section: InfoType & { name: string } }];
@@ -39,7 +39,7 @@ const PageSection: React.FC<IPageSection> = ({
           },
         } = image;
         return (
-          <InfoCard
+          <DetailPageCard
             type={cardType}
             key={`${name}-${idx}`}
             title={title}

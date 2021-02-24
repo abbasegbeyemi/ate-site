@@ -1,6 +1,9 @@
 import * as React from 'react';
-import Footer from '@/components/footer';
+import Footer from '@/components/atoms/footer';
 import Header from './header';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 interface ILayoutProps {
   title: string;
@@ -9,6 +12,9 @@ interface ILayoutProps {
 }
 
 const Layout: React.FC<ILayoutProps> = ({ title, subtitle, children }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
     <>
       <Header title={title} subtitle={subtitle} />

@@ -1,13 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { FluidObject } from 'gatsby-image';
-import { ActionCard } from '@/components/action-card';
+import { ActionCard } from '@/components/atoms/action-card';
 
 export type ImageProps = Array<{
   node: { name: string; childImageSharp: { fluid: FluidObject } };
 }>;
 
-const useAboutSectionImages: () => ImageProps = () => {
+const aboutSectionImages: () => ImageProps = () => {
   const {
     allFile: { images },
   } = useStaticQuery(graphql`
@@ -42,7 +42,7 @@ const aboutData = require('@/data/info-section-data.yaml');
 
 const AboutSection: React.FC = () => {
   const { content } = aboutData;
-  const images = useAboutSectionImages();
+  const images = aboutSectionImages();
 
   return (
     <section>
