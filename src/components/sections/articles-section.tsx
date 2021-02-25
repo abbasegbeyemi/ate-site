@@ -25,7 +25,6 @@ const ArticlesSection: React.FC = () => {
       }
     }
   `);
-  console.log(edges);
   return (
     <section>
       <Heading as={'h1'} variant={'sectionTitle'}>

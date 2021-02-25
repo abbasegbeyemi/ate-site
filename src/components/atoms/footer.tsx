@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { Grid, Heading, jsx, Link } from 'theme-ui';
 import React from 'react';
-// import { BottomWave } from './waves';
 import { useStaticQuery, graphql } from 'gatsby';
 import Logo from './logo';
 
@@ -28,13 +27,12 @@ const Footer: React.FC = () => {
         variant: 'layout.footer',
       }}
     >
-      {/*<BottomWave className={'wavySvg'} />*/}
       <div id={'container'}>
         <Grid variant={'footerGrid'}>
           <Logo
             sx={{ variant: 'logos.nav', gridRow: 1, gridColumn: '1 / span 2' }}
           />
-          <p
+          <div
             sx={{
               gridRow: 1,
               gridColumn: '3 / span 6',
@@ -46,23 +44,26 @@ const Footer: React.FC = () => {
           >
             <p sx={{ color: 'white', p: 0, m: 0 }}>Connect with ATE:</p>
             {social.map(({ name, url }, idx) => (
-              <Link
+              <a
                 key={`${name}-${idx}`}
                 target={'_blank'}
                 rel={'noreferrer noopener'}
                 href={url}
-                variant={'footerLink'}
+                sx={{
+                    variant: 'links.footerLink'
+                }}
               >
                 {name}
-              </Link>
+              </a>
             ))}
-          </p>
+          </div>
           <div
             sx={{
               display: 'flex',
               flexDirection: 'column',
               gridRow: [2, null, null, 1],
-              gridColumn: '1 / span 8',
+              gridColumn: ['1 / span 8', null, null, '2 / span 6'],
+                justifyContent: 'center'
             }}
           >
             <Heading as={'h2'} sx={{ color: 'headerTitle' }}>

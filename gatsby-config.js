@@ -44,8 +44,13 @@ const plugins = [
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sass',
   'gatsby-transformer-yaml',
-  'gatsby-plugin-netlify-cms',
   'gatsby-plugin-remove-trailing-slashes',
+  {
+    resolve: 'gatsby-plugin-netlify-cms',
+    options: {
+      modulePath: `${__dirname}/src/cms/netlify.js`
+    }
+  },
   {
     resolve: 'gatsby-plugin-mdx',
     options: {

@@ -21,6 +21,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
   return (
     <div
       sx={{
+        
         my: 3,
         display: 'flex',
         // boxShadow: (theme) => theme.shadows.lg,
@@ -30,19 +31,9 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
     >
       <div
         sx={{
-          p: 0,
-          overflow: 'hidden',
-          width: [12, null, 24, null],
-        }}
-      >
-        <Img fluid={image.childImageSharp.fluid} />
-      </div>
-      <div
-        sx={{
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
-          ml: 2,
           color: 'textMuted',
         }}
       >
