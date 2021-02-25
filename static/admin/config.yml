@@ -1,0 +1,67 @@
+#local_backend: true
+
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+site_url: https://theatenetwork.com
+
+publish_mode: editorial_workflow
+
+logo_url: https://theatenetwork.com/icons/icon_512x512.png
+
+collections:
+  - name: 'articles'
+    label: 'Articles'
+    extension: 'mdx'
+    format: 'frontmatter'
+    folder: 'content/articles'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    preview_path: 'articles/{{title}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Author', name: 'author', widget: 'relation', collection: 'bios', value_field: 'username', search_fields: [ 'username' ], display_fields: [ 'name' ] }
+      - { label: 'Header Image', name: 'image', widget: 'image', allow_multiple: false }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'bios'
+    label: 'Bios'
+    extension: 'mdx'
+    format: 'frontmatter'
+    folder: 'content/bios'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    preview_path: 'bios/{{title}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Username', name: 'username', widget: 'string' }
+      - { label: 'Full Name', name: 'name', widget: 'string' }
+      - { label: 'Job Title', name: 'title', widget: 'string' }
+      - { label: 'Profile Picture', name: 'image', widget: 'image', allow_multiple: false }
+      - label: "Links"
+        name: "links"
+        widget: "list"
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Url, name: url, widget: string }
+        required: false
+      - { label: 'Bio', name: 'body', widget: 'markdown' }
+
+
+
+
+

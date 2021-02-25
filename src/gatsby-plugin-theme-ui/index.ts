@@ -15,10 +15,10 @@ const theme = {
     actionTitleAlt: '#4acdf1',
     actionTextAlt: '#acdcef',
     text: '#0f2022',
-    link: '#c3ecf6',
+    link: '#1de2ff',
     pagelink: '#961c30',
     background: '#fff',
-    footerColor: '#007d9f',
+    footerColor: '#325258',
   },
   breakpoints: ['576px', '768px', '992px', '1200px'],
   fontSizes: [
@@ -46,17 +46,38 @@ const theme = {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
+
+      a: {
+        color: 'inherit',
+        ':hover': {
+          color: 'pagelink',
+        },
+      },
+    },
+    subHeading: {
+      fontFamily: 'heading',
+      lineHeight: 'normal',
+      fontWeight: 'medium',
     },
     body: {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
     },
+    light: {
+      variant: 'text.body',
+      fontWeight: 'light',
+      color: 'textMuted',
+    },
+    listLight: {
+      variant: 'text.light',
+      fontSize: [0, null, null, 1],
+    },
     headerTitle: {
       variant: 'text.heading',
       color: 'headerTitle',
       textAlign: 'center',
-      fontSize: [3, null, 9, null],
+      fontSize: [3, null, 7, null],
     },
     headerSubtitle: {
       variant: 'text.heading',
@@ -86,15 +107,31 @@ const theme = {
       fontSize: [2, null, 3, 6],
       color: 'actionTitle',
     },
+    bioSubtitle: {
+      variant: 'text.subHeading',
+      fontSize: [1, null, 2, 5],
+      color: 'accent',
+    },
     bioText: {
       variant: 'text.body',
       my: [1, null, 2, null],
       fontSize: [0, null, 1, 3],
-      color: 'accent',
+      a: {
+        variant: 'links.pageLink',
+      },
+    },
+    eventsTitle: {
+      variant: 'text.bioTitle',
     },
     eventsText: {
       variant: 'text.bioText',
       color: 'text',
+    },
+    articlesTitle: {
+      variant: 'text.bioTitle',
+    },
+    articlesText: {
+      variant: 'text.bioText',
     },
   },
   links: {
@@ -108,15 +145,14 @@ const theme = {
         color: 'accent',
       },
     },
-    navLink: {
+    nav: {
       variant: 'links.footerLink',
       mx: [1, 2, null, 3],
-      fontSize: ['inherit', null, 2, null],
+      fontSize: [0, null, 3, null],
     },
     pageLink: {
       variant: 'links.footerLink',
       color: 'pagelink',
-
       ':hover': {
         color: 'accent',
       },
@@ -164,7 +200,7 @@ const theme = {
     headerGrid: {
       variant: 'grids.singleRow',
       mt: 2,
-      mb: [5, null, 6, null],
+      mb: [2, null, 3, null],
     },
     actionGrid: {
       variant: 'grids.singleRow',
@@ -192,13 +228,14 @@ const theme = {
   layout: {
     bio: {
       image: {
-        gridColumn: ['1 / span 2', null, '1 / span 3', null],
+        // gridColumn: ['1 / span 2', null, '1 / span 3', null],
+        gridColumn: ['1 / span 2'],
         borderRadius: (theme) => theme.radii.lg,
         overflow: 'hidden',
         boxShadow: (theme) => theme.shadows['2xl'],
       },
       text: {
-        gridColumn: ['3 / span 6', null, '4 /span 5', null],
+        gridColumn: ['3 / span 6'],
         px: [2, null, 5, null],
         display: 'flex',
         flexDirection: 'column',
@@ -220,10 +257,18 @@ const theme = {
         flexDirection: 'column',
       },
     },
+    articles: {
+      image: {
+        variant: 'layout.events.image',
+      },
+      text: {
+        variant: 'layout.events.text',
+      },
+    },
     header: {
       width: '100%',
       display: 'flex',
-      flex: '1 0 auto',
+      // flex: '1 0 auto',
       flexDirection: 'column',
       bg: 'footerColor',
       '.wavySvg': {
@@ -267,6 +312,61 @@ const theme = {
         py: 1,
         bg: 'footerColor',
       },
+    },
+  },
+  styles: {
+    ...tailwind.styles,
+    root: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+      fontSize: [0, 1, 2, 3],
+
+      '& ::selection': {
+        background: (theme) => theme.colors.accent,
+      },
+      '& .gatsby-resp-image-wrapper': {
+        '&  img': {
+          p: 3,
+        },
+      },
+      '& div[role=navigation]': {
+        display: ['block', 'none', null, null],
+      },
+
+      '& :focus': {
+        outline: 'none',
+      },
+      '& a': {
+        textDecoration: 'none',
+      },
+      transition: 'background 0.6s',
+    },
+    a: {
+      color: 'pageLink',
+      textDecoration: 'none',
+      transition: 'color 0.25s linear',
+      ':hover, :focus': {
+        color: 'accent',
+      },
+    },
+    p: {
+      fontFamily: 'body',
+      fontWeight: 'normal',
+      lineHeight: 'normal',
+      letterSpacing: 'normal',
+      fontSize: [0, 1, 2, null],
+    },
+    ul: {
+      variant: 'styles.p',
+    },
+
+    img: {
+      width: ['100%', 'lg', '2xl', '3xl'],
+      p: 0,
+      mt: 4,
+      display: 'block',
+      mx: 'auto',
     },
   },
 };
