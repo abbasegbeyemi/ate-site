@@ -28,6 +28,7 @@ collections:
     editor:
       preview: true
     fields:
+      - { label: 'Template', name: 'template', widget: 'hidden', default: 'article' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Author', name: 'author', widget: 'relation', collection: 'bios', value_field: 'username', search_fields: [ 'username' ], display_fields: [ 'name' ] }
@@ -44,10 +45,11 @@ collections:
     media_folder: ''
     public_folder: ''
     path: '{{title}}/index'
-    preview_path: 'bios/{{title}}'
+    preview_path: 'bios/{{name}}'
     editor:
       preview: true
     fields:
+      - { label: 'Template', name: 'template', widget: 'hidden', default: 'bio' }
       - { label: 'Username', name: 'username', widget: 'string' }
       - { label: 'Full Name', name: 'name', widget: 'string' }
       - { label: 'Job Title', name: 'title', widget: 'string' }
