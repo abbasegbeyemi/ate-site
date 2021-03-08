@@ -44,8 +44,8 @@ collections:
     slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/index'
-    preview_path: 'bios/{{name}}'
+    path: '{{username}}/index'
+    preview_path: 'bios/{{username}}'
     editor:
       preview: true
     fields:

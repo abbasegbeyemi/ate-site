@@ -323,7 +323,7 @@ const theme = {
       fontSize: [0, 1, 2, 3],
 
       '& ::selection': {
-        background: (theme) => theme.colors.accent,
+        background: (theme) => theme.colors.footerColor,
       },
       '& .gatsby-resp-image-wrapper': {
         '&  img': {
