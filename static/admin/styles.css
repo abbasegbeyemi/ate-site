@@ -12,3 +12,16 @@ body {
 .headerImage {
 	width: 100%
 }
+
+article {
+	max-width: 100%;
+}
+
+article div img {
+	max-width: 100%;
+	margin-bottom: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: red;
+}

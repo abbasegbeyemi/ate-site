@@ -1,12 +1,11 @@
 /** @jsx jsx */
-import {graphql} from 'gatsby';
-import {jsx} from 'theme-ui';
+import { graphql } from 'gatsby';
+import { jsx } from 'theme-ui';
 import Layout from '@/components/atoms/layout';
 import SEO from '@/components/atoms/seo';
 import React from 'react';
-import {DetailPageCard} from '@/components/atoms/detail-page-card';
-import {GatsbyImageFluid} from '@/templates/article-template';
-
+import { DetailPageCard } from '@/components/atoms/detail-page-card';
+import { GatsbyImageFluid } from '@/templates/article-template';
 
 type BioPageProps = {
     data: {
@@ -22,16 +21,16 @@ type BioPageProps = {
     };
 };
 
-const BioPage: React.FC<BioPageProps> = ({data}) => {
+const BioPage: React.FC<BioPageProps> = ({ data }) => {
     const {
         mdx: {
             body,
-            frontmatter: {name, title, image, links},
+            frontmatter: { name, title, image, links },
         },
     } = data;
     return (
         <>
-            <SEO title={name}/>
+            <SEO title={name} />
             <Layout title={name}>
                 <DetailPageCard
                     image={image.childImageSharp.fluid}

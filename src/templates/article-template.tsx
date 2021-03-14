@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import {graphql} from 'gatsby';
-import {MDXProvider} from '@mdx-js/react';
-import {MDXRenderer} from 'gatsby-plugin-mdx';
-import {jsx} from 'theme-ui';
+import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { jsx } from 'theme-ui';
 import Layout from '@/components/atoms/layout';
 import SEO from '@/components/atoms/seo';
 import React from 'react';
-import Img, {FluidObject} from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 import AuthorCard from '@/components/atoms/author-card';
 
 export type GatsbyImageFluid = {
@@ -36,42 +36,52 @@ type ArticlePageProps = {
     };
 };
 
-export const Article: React.FC<{ title: string; image: GatsbyImageFluid }> = (props) => {
+export const Article: React.FC<{ title: string; image: GatsbyImageFluid }> = (
+    props,
+) => {
     return (
         <article
             sx={{
-                "& > p, h1, h2, h3, h4, h5, h6, ul": {
-                    maxWidth: ["100%", null, "70%", null],
-                    mx: "auto",
+                '&': {
+                    maxWidth: ['100%', null, '70%', null],
+                    mx: 'auto',
                 },
-                "h1, h2, h3, h4, h5, h6": {
-                    color: "accent",
+                'h1, h2, h3, h4, h5, h6': {
+                    color: 'accent',
+                },
+                'ul, ol, li': {
+                    variant: 'styles.p',
+                },
+                blockquote: {
+                    borderLeft: (theme) => `4px solid ${theme.colors.accent}`,
+                    pl: 2,
+                    p: {
+                        color: 'textMuted',
+                    },
                 },
             }}
         >
-            
             <div
                 sx={{
-                    maxHeight: ["30rem"],
-                    maxWidth: ["100%", null, "70%", null],
-                    mx: "auto",
-                    overflow: "hidden",
+                    maxHeight: ['30rem'],
+                    // maxWidth: ['100%', null, '100%', null],
+                    mx: 'auto',
+                    overflow: 'hidden',
                 }}
             >
                 <Img
                     title={props.title}
                     alt={props.title}
                     fluid={props.image.childImageSharp.fluid}
-                    imgStyle={{objectFit: "cover"}}
+                    imgStyle={{ objectFit: 'cover' }}
                 />
             </div>
             {props.children}
         </article>
-    )
-    
-}
+    );
+};
 
-const ArticlePage: React.FC<ArticlePageProps> = ({data}) => {
+const ArticlePage: React.FC<ArticlePageProps> = ({ data }) => {
     const {
         mdx: {
             body,
@@ -81,21 +91,35 @@ const ArticlePage: React.FC<ArticlePageProps> = ({data}) => {
                 articleImage,
                 date,
                 author: {
-                    frontmatter: {name, authorImage},
-                    fields: {authorSlug},
+                    frontmatter: { name, authorImage },
+                    fields: { authorSlug },
                 },
             },
         },
     } = data;
+    const components = {
+        a: ({ children, ...props }) => (
+            <a
+                {...props}
+                sx={{ variant: 'links.pageLink', p: 0, m: 0 }}
+                target="_blank"
+                rel="noreferrer noopener"
+            >
+                {children}
+            </a>
+        ),
+    };
     return (
         <>
-            <SEO title={title}/>
+            <SEO title={title} />
             <Layout title={title}>
-                <div sx={{
-                    maxWidth: "90rem",
-                    px: 4,
-                    mx: "auto",
-                }}>
+                <div
+                    sx={{
+                        maxWidth: '90rem',
+                        px: 4,
+                        mx: 'auto',
+                    }}
+                >
                     <AuthorCard
                         name={name}
                         date={date}
@@ -104,13 +128,11 @@ const ArticlePage: React.FC<ArticlePageProps> = ({data}) => {
                         timeToRead={timeToRead}
                     />
                     <Article title={title} image={articleImage}>
-                        <MDXProvider>
+                        <MDXProvider components={components}>
                             <MDXRenderer>{body}</MDXRenderer>
                         </MDXProvider>
                     </Article>
-                
                 </div>
-            
             </Layout>
         </>
     );
