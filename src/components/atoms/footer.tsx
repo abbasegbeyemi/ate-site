@@ -44,7 +44,8 @@ const Footer: React.FC = () => {
                             justifySelf: 'right',
                             textAlign: 'right',
                             display: 'flex',
-                            flexDirection: ['column', null, null, 'column'],
+                            flexDirection: ['row', null, null, 'column'],
+                            fontSize: [2, null, 5, null],
                         }}
                     >
                         {/*<p sx={{ color: 'white', p: 0, m: 0 }}>*/}
