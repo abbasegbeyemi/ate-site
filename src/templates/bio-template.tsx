@@ -30,7 +30,7 @@ const BioPage: React.FC<BioPageProps> = ({ data }) => {
     } = data;
     return (
         <>
-            <SEO title={name} />
+            <SEO title={name} image={image.publicURL} />
             <Layout title={name}>
                 <DetailPageCard
                     image={image.childImageSharp.fluid}

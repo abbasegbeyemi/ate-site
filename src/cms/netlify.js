@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import CMS from 'netlify-cms-app';
 import React from 'react';
-import { jsx } from 'theme-ui';
 
 CMS.registerPreviewStyle('styles.css');
 

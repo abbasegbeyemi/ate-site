@@ -11,6 +11,7 @@ import AuthorCard from '@/components/atoms/author-card';
 
 export type GatsbyImageFluid = {
     childImageSharp: { fluid: FluidObject };
+    publicURL: string;
 };
 type ArticlePageProps = {
     data: {
@@ -111,7 +112,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ data }) => {
     };
     return (
         <>
-            <SEO title={title} />
+            <SEO title={title} image={articleImage.publicURL} />
             <Layout title={title}>
                 <div
                     sx={{
@@ -149,6 +150,7 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM, YYYY")
             articleImage: image {
+                publicURL
                 childImageSharp {
                     fluid(maxWidth: 2400) {
                         srcSet
@@ -163,6 +165,7 @@ export const pageQuery = graphql`
                 frontmatter {
                     name
                     authorImage: image {
+                        publicURL
                         childImageSharp {
                             fluid(maxWidth: 500) {
                                 srcSet

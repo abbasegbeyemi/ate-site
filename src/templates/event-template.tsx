@@ -1,9 +1,9 @@
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '@/components/atoms/layout';
 import SEO from '@/components/atoms/seo';
 import React from 'react';
-import {DetailPageCard} from '@/components/atoms/detail-page-card';
-import {GatsbyImageFluid} from '@/templates/article-template';
+import { DetailPageCard } from '@/components/atoms/detail-page-card';
+import { GatsbyImageFluid } from '@/templates/article-template';
 
 type EventPageProps = {
     data: {
@@ -20,16 +20,16 @@ type EventPageProps = {
     };
 };
 
-const EventPage: React.FC<EventPageProps> = ({data}) => {
+const EventPage: React.FC<EventPageProps> = ({ data }) => {
     const {
         mdx: {
             body,
-            frontmatter: {title, image, links, date},
+            frontmatter: { title, image, links, date },
         },
     } = data;
     return (
         <>
-            <SEO title={title}/>
+            <SEO title={title} image={image.publicURL} />
             <Layout title={title}>
                 <DetailPageCard
                     title={date}
