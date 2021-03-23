@@ -11,6 +11,7 @@ type BioPageProps = {
     data: {
         mdx: {
             body: string;
+            excerpt: string;
             frontmatter: {
                 name: string;
                 title: string;
@@ -25,12 +26,13 @@ const BioPage: React.FC<BioPageProps> = ({ data }) => {
     const {
         mdx: {
             body,
+            excerpt,
             frontmatter: { name, title, image, links },
         },
     } = data;
     return (
         <>
-            <SEO title={name} image={image.publicURL} />
+            <SEO title={name} image={image.publicURL} description={excerpt} />
             <Layout title={name}>
                 <DetailPageCard
                     image={image.childImageSharp.fluid}
@@ -50,6 +52,7 @@ export default BioPage;
 export const pageQuery = graphql`
     fragment BioDataFragment on Mdx {
         body
+        excerpt(pruneLength: 200)
         frontmatter {
             name
             title

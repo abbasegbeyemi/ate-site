@@ -44,7 +44,7 @@ const SEO: React.FC<SEOProps> = (props) => {
         image: siteImage,
     } = siteMetadata;
 
-    const title = props.title ?? siteTitle;
+    const title = `${props.title} | ${siteTitle}`;
     const description = props.description || siteDescription;
     const image = props.image || siteImage;
     const keywords = [...siteKeywords, props.keywords].join(',');

@@ -24,12 +24,13 @@ const EventPage: React.FC<EventPageProps> = ({ data }) => {
     const {
         mdx: {
             body,
+            excerpt,
             frontmatter: { title, image, links, date },
         },
     } = data;
     return (
         <>
-            <SEO title={title} image={image.publicURL} />
+            <SEO title={title} image={image.publicURL} description={excerpt} />
             <Layout title={title}>
                 <DetailPageCard
                     title={date}

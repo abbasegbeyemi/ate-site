@@ -87,6 +87,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ data }) => {
         mdx: {
             body,
             timeToRead,
+            excerpt,
             frontmatter: {
                 title,
                 articleImage,
@@ -112,7 +113,11 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ data }) => {
     };
     return (
         <>
-            <SEO title={title} image={articleImage.publicURL} />
+            <SEO
+                title={title}
+                image={articleImage.publicURL}
+                description={excerpt}
+            />
             <Layout title={title}>
                 <div
                     sx={{
