@@ -17,7 +17,7 @@ article {
 	max-width: 100%;
 }
 
-article div img {
+div > img {
 	max-width: 100%;
 	margin-bottom: 2rem;
 }
