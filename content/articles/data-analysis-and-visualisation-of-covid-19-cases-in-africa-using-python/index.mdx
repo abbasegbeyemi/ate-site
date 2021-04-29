@@ -31,19 +31,19 @@ The exercise focusses on Africa and analyses the following using the dataset pro
 
 Let's import pandas for data manipulation and analysis
 
-```python
+```ipynb
 import pandas as pd  
 ```
 
 Now lets read this csv data from the WHO dataset to a Pandas dataframe
 
-```python
+```ipynb
 df = pd.read_csv("https://covid19.who.int/WHO-COVID-19-global-table-data.csv")
 ```
 
 Let's take a look at the dataset. 
 
-```
+```ipynb
 df
 ```
 
@@ -74,7 +74,7 @@ df = pd.DataFrame(df, columns=["Name",
 
 Now, let's take a look at the updated dataset. 
 
-```
+```ipynb
 df
 ```
 
@@ -106,13 +106,13 @@ For this exercise, we are only interested in the data for countries within Afric
 
 We can assign a variable (Africa) to a filtered dataframe showing only countries with "Africa" assigned as the WHO region. 
 
-```
+```ipynb
 Africa = df[df["WHO Region"]=="Africa"]
 ```
 
 Now, let's take a look at the new filtered data using the "head" function, which shows the top 5 entries in the dataframe
 
-```
+```ipynb
 Africa.head()
 ```
 
@@ -130,7 +130,7 @@ Africa.head()
 
 Let's count the number of entries in the filtered dataset (Africa)
 
-```
+```ipynb
 len(Africa)
 ```
 
@@ -146,7 +146,7 @@ Therefore, for this exercise, these dependent territories are excluded.
 
 We'll create a new variable (Africa_updated) to include & exclude the aforementioned countries.
 
-```
+```ipynb
 Africa_updated = df[(df["WHO Region"]=="Africa" ) & 
                  ~df["Name"].isin(["Réunion", "Mayotte", "Saint Helena"]) |
                  df["Name"].isin(["Morocco", "Tunisia", "Egypt", "Sudan", "Libya", "Somalia", "Djibouti"]) 
@@ -155,7 +155,7 @@ Africa_updated = df[(df["WHO Region"]=="Africa" ) &
 
 Again, Let's count the number of entries in the updated dataset (Africa_updated)
 
-```
+```ipynb
 len(Africa_updated)
 ```
 
@@ -167,7 +167,7 @@ len(Africa_updated)
 
 In order to get some descriptive statistics (e.g. mean, median, minimum, maximum) for the data, we'll  use the "describe" function shown below
 
-```
+```ipynb
 Africa_updated.describe()
 ```
 
@@ -190,7 +190,7 @@ Africa_updated.describe()
 
 Let's see what the updated data looks like. We'll like to see the top three (3) and bottom three (3) lines of the updated dataset
 
-```
+```ipynb
 Africa_updated.head(3)
 ```
 
@@ -204,7 +204,7 @@ Africa_updated.head(3)
 
 <!--EndFragment-->
 
-```
+```ipynb
 Africa_updated.tail(3)
 ```
 
@@ -222,13 +222,13 @@ Africa_updated.tail(3)
 
 Now, let's sort the dataset by the cumulative total cases per 100,000 population and assign it to a new variable
 
-```
+```ipynb
 Africa_Sort = Africa_updated.sort_values(by="Cases - cumulative total per 100000 population", ascending=False)
 ```
 
 Let's see what the sorted data (Africa_Sort) looks like. We'll also like to see the top three (3) and bottom three (3) lines of the sorted dataset
 
-```
+```ipynb
 Africa_Sort.head(3)
 ```
 
@@ -242,7 +242,7 @@ Africa_Sort.head(3)
 
 <!--EndFragment-->
 
-```
+```ipynb
 Africa_Sort.tail(3)
 ```
 
@@ -260,20 +260,20 @@ Africa_Sort.tail(3)
 
 First, we'll use matplotlib to plot a horizontal bar chart to visualise the cumulative number of cases for each African Country.
 
-```
+```ipynb
 import matplotlib.pyplot as plt 
 ```
 
 Let's assign variables to the data corresponding to the vertical and horizontal axes in the bar chart
 
-```
+```ipynb
 Country = Africa_updated["Name"] #this will be on the vertical axis
 Cumulative_cases = Africa_updated["Cases - cumulative total"] #this will be on the horizontal axis
 ```
 
 Let's visualise the data (horizontal bar chart) and compare the cumulative number of cases for each African Country 
 
-```
+```ipynb
 #Basic horizontal bar chart to visualise the cumulative number of cases for each African Country
 
 fig, ax = plt.subplots(figsize=(11,15))
@@ -290,7 +290,7 @@ plt.tight_layout()
 plt.legend();
 ```
 
-![Covid Cases in Africa - April 2021](download.png "Covid Cases in Africa - April 2021")
+![Cumulative cases](download.png "Cumulative cases")
 
 # Let's visualise the cumulative number of cases for each African Country on a Choropleth map
 
@@ -323,9 +323,78 @@ Cumulative_cases_plot.show()
 
 Let's assign variables to the data corresponding to the vertical and horizontal axes in the new bar chart
 
-```
+```ipynb
 Country_Sort = Africa_Sort["Name"]
 Cumulative_cases_per_population = Africa_Sort["Cases - cumulative total per 100000 population"]
 ```
 
 To put things in perspective, we need to evaluate the cumulative number of cases per 100,000 population for each African Country (i.e. the number of cases as a fraction of the population).
+
+Similarly, let's use matplotlib to plot a horizontal bar chart to visualise the cumulative number of cases per 100,000 population for each African Country
+
+```ipynb
+#Basic horizontal bar chart to visualise the cumulative number of cases per 100,000 population for each African Country
+
+fig, ax = plt.subplots(figsize=(11,15))
+ax.barh(Country_Sort, Cumulative_cases_per_population, color = "Violet", label = "Cases - cumulative total per 100,000 population")
+ax.set_title("Covid Cases in Africa - April 2021", fontsize = 20)
+ax.set_xlabel("Cases - cumulative total per 100,000 population", fontsize = 20)
+ax.set_ylabel("Country", fontsize = 20)
+ax.invert_yaxis() 
+plt.axvline(Africa_Sort.describe().iat[1,1], color = "blue", label = "Average") 
+plt.axvline(Africa_Sort.describe().iat[5,1], color = "green", label = "Median") 
+plt.tight_layout()
+plt.legend();
+```
+
+![Cases - cumulative total per 100,000 population](download-1-.png "Cases - cumulative total per 100,000 population")
+
+# Let's visualise the cumulative number of cases per 100,000 population for each African Country on a Choropleth map
+
+We'll use plotly again to create an interactive map
+
+```ipynb
+#Interactive African map to visualise the cumulative number of cases per 100,000 population for each African Country
+
+Cumulative_cases_per_population_plot = px.choropleth(Africa_Sort,
+                    locations="Name",  
+                    color="Cases - cumulative total per 100000 population",
+                    locationmode = 'country names', 
+                    scope="africa", 
+                    title ="Covid-19 Cases in Africa - April 2021 (Cases - cumulative total per 100,000 population)",
+                    hover_name="Name",
+                    color_continuous_scale = "Reds",
+                   )
+Cumulative_cases_per_population_plot.update_traces(marker_line_color="black") 
+Cumulative_cases_per_population_plot.show()
+```
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~bunmiadeayo/4.embed"></iframe>
+
+### This is an interactive map, so you can hover over each region, zoom in and out of the map.
+
+# Conclusion
+
+Through the exercise, we have demonstrated how we can use Python (pandas, matplotlib and plotly libraries) to analyse and visualise (bar charts and interactive maps) Covid-19 cases in Africa, based on the dataset provided by the WHO. 
+
+More specifically, as part of this exercise, we completed the following: 
+
+* Ranked the Covid-19 cases in Africa (i.e. most cases to least cases, top (3) and bottom (3) African countries)
+* Showed the distribution of cases (per 100,000 population) for each African country 
+* Visualised the data using bar charts and interactive maps 
+* Evaluated some descriptive statistics (e.g. Mean, Median)
+* Utilised pandas, matplotlib and plotly libraries for data analysis and visualisation 
+
+Please get in touch if you have questions or suggestions. 
+
+# Bibliography & References
+
+https://allenkunle.me/exploratory-analysis-police-shooting
+
+https://covid19.who.int/table
+
+https://plotly.com/python/
+
+https://plotly.com/python/mapbox-county-choropleth/
+
+https://www.worldometers.info/geography/how-many-countries-in-africa/
