@@ -78,25 +78,21 @@ Now, let's take a look at the updated dataset.
 df
 ```
 
-<!--StartFragment-->
-
-| Name | WHO Region               | Cases - cumulative total | Cases - cumulative total per 100000 population |             |
-| ---- | ------------------------ | ------------------------ | ---------------------------------------------- | ----------- |
-| 0    | Global                   | NaN                      | 148999876                                      | 1908.710561 |
-| 1    | United States of America | Americas                 | 31835314                                       | 9617.840000 |
-| 2    | India                    | South-East Asia          | 18376524                                       | 1331.630000 |
-| 3    | Brazil                   | Americas                 | 14441563                                       | 6794.130000 |
-| 4    | France                   | Europe                   | 5447883                                        | 8376.290000 |
-| ...  | ...                      | ...                      | ...                                            | ...         |
-| 233  | Saint Helena             | Africa                   | 0                                              | 0.000000    |
-| 234  | Tokelau                  | Western Pacific          | 0                                              | 0.000000    |
-| 235  | Tonga                    | Western Pacific          | 0                                              | 0.000000    |
-| 236  | Turkmenistan             | Europe                   | 0                                              | 0.000000    |
-| 237  | Tuvalu                   | Western Pacific          | 0                                              | 0.000000    |
+| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |           |             |
+| ---------- | ------------------------ | ---------------------------------------------- | --------- | ----------- |
+| 0          | Global                   | NaN                                            | 148999876 | 1908.710561 |
+| 1          | United States of America | Americas                                       | 31835314  | 9617.840000 |
+| 2          | India                    | South-East Asia                                | 18376524  | 1331.630000 |
+| 3          | Brazil                   | Americas                                       | 14441563  | 6794.130000 |
+| 4          | France                   | Europe                                         | 5447883   | 8376.290000 |
+| ...        | ...                      | ...                                            | ...       | ...         |
+| 233        | Saint Helena             | Africa                                         | 0         | 0.000000    |
+| 234        | Tokelau                  | Western Pacific                                | 0         | 0.000000    |
+| 235        | Tonga                    | Western Pacific                                | 0         | 0.000000    |
+| 236        | Turkmenistan             | Europe                                         | 0         | 0.000000    |
+| 237        | Tuvalu                   | Western Pacific                                | 0         | 0.000000    |
 
 238 rows × 4 columns
-
-<!--EndFragment-->
 
 As we can see, the WHO dataset contains data for different countries and regions in the world.
 
@@ -116,17 +112,13 @@ Now, let's take a look at the new filtered data using the "head" function, which
 Africa.head()
 ```
 
-<!--StartFragment-->
-
-| Name | WHO Region   | Cases - cumulative total | Cases - cumulative total per 100000 population |         |
-| ---- | ------------ | ------------------------ | ---------------------------------------------- | ------- |
-| 20   | South Africa | Africa                   | 1577200                                        | 2659.31 |
-| 61   | Ethiopia     | Africa                   | 254044                                         | 220.98  |
-| 79   | Nigeria      | Africa                   | 164912                                         | 80.00   |
-| 80   | Kenya        | Africa                   | 157492                                         | 292.89  |
-| 86   | Algeria      | Africa                   | 121344                                         | 276.72  |
-
-<!--EndFragment-->
+| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |         |         |
+| ---------- | ------------------------ | ---------------------------------------------- | ------- | ------- |
+| 20         | South Africa             | Africa                                         | 1577200 | 2659.31 |
+| 61         | Ethiopia                 | Africa                                         | 254044  | 220.98  |
+| 79         | Nigeria                  | Africa                                         | 164912  | 80.00   |
+| 80         | Kenya                    | Africa                                         | 157492  | 292.89  |
+| 86         | Algeria                  | Africa                                         | 121344  | 276.72  |
 
 Let's count the number of entries in the filtered dataset (Africa)
 
@@ -171,20 +163,16 @@ In order to get some descriptive statistics (e.g. mean, median, minimum, maximum
 Africa_updated.describe()
 ```
 
-<!--StartFragment-->
-
-| Cases - cumulative total | Cases - cumulative total per 100000 population |             |
-| ------------------------ | ---------------------------------------------- | ----------- |
-| count                    | 5.400000e+01                                   | 54.000000   |
-| mean                     | 8.383431e+04                                   | 647.380000  |
-| std                      | 2.266335e+05                                   | 1084.383573 |
-| min                      | 5.090000e+02                                   | 0.850000    |
-| 25%                      | 6.659000e+03                                   | 88.475000   |
-| 50%                      | 2.230700e+04                                   | 206.945000  |
-| 75%                      | 4.765825e+04                                   | 499.902500  |
-| max                      | 1.577200e+06                                   | 5513.130000 |
-
-<!--EndFragment-->
+| Cases - cumulative total per 100000 population |              |             |
+| ---------------------------------------------- | ------------ | ----------- |
+| count                                          | 5.400000e+01 | 54.000000   |
+| mean                                           | 8.383431e+04 | 647.380000  |
+| std                                            | 2.266335e+05 | 1084.383573 |
+| min                                            | 5.090000e+02 | 0.850000    |
+| 25%                                            | 6.659000e+03 | 88.475000   |
+| 50%                                            | 2.230700e+04 | 206.945000  |
+| 75%                                            | 4.765825e+04 | 499.902500  |
+| max                                            | 1.577200e+06 | 5513.130000 |
 
 # Cumulative Covid19 Cases in Africa: Top Three (3) and Bottom Three (3) Countries
 
@@ -194,29 +182,21 @@ Let's see what the updated data looks like. We'll like to see the top three (3) 
 Africa_updated.head(3)
 ```
 
-<!--StartFragment-->
-
-| Name | WHO Region   | Cases - cumulative total | Cases - cumulative total per 100000 population |         |
-| ---- | ------------ | ------------------------ | ---------------------------------------------- | ------- |
-| 20   | South Africa | Africa                   | 1577200                                        | 2659.31 |
-| 41   | Morocco      | Eastern Mediterranean    | 510465                                         | 1382.98 |
-| 56   | Tunisia      | Eastern Mediterranean    | 305313                                         | 2583.32 |
-
-<!--EndFragment-->
+| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |         |         |
+| ---------- | ------------------------ | ---------------------------------------------- | ------- | ------- |
+| 20         | South Africa             | Africa                                         | 1577200 | 2659.31 |
+| 41         | Morocco                  | Eastern Mediterranean                          | 510465  | 1382.98 |
+| 56         | Tunisia                  | Eastern Mediterranean                          | 305313  | 2583.32 |
 
 ```ipynb
 Africa_updated.tail(3)
 ```
 
-<!--StartFragment-->
-
-| Name | WHO Region                  | Cases - cumulative total | Cases - cumulative total per 100000 population |       |
-| ---- | --------------------------- | ------------------------ | ---------------------------------------------- | ----- |
-| 188  | Liberia                     | Africa                   | 2098                                           | 41.48 |
-| 194  | Mauritius                   | Africa                   | 1206                                           | 94.83 |
-| 202  | United Republic of Tanzania | Africa                   | 509                                            | 0.85  |
-
-<!--EndFragment-->
+| WHO Region | Cases - cumulative total    | Cases - cumulative total per 100000 population |      |       |
+| ---------- | --------------------------- | ---------------------------------------------- | ---- | ----- |
+| 188        | Liberia                     | Africa                                         | 2098 | 41.48 |
+| 194        | Mauritius                   | Africa                                         | 1206 | 94.83 |
+| 202        | United Republic of Tanzania | Africa                                         | 509  | 0.85  |
 
 # Cumulative Covid19 Cases per 100,000 Population in Africa: Top Three (3) and Bottom Three (3) Countries
 
@@ -232,29 +212,21 @@ Let's see what the sorted data (Africa_Sort) looks like. We'll also like to see 
 Africa_Sort.head(3)
 ```
 
-<!--StartFragment-->
-
-| Name | WHO Region   | Cases - cumulative total | Cases - cumulative total per 100000 population |         |
-| ---- | ------------ | ------------------------ | ---------------------------------------------- | ------- |
-| 165  | Seychelles   | Africa                   | 5422                                           | 5513.13 |
-| 125  | Cabo Verde   | Africa                   | 22772                                          | 4095.78 |
-| 20   | South Africa | Africa                   | 1577200                                        | 2659.31 |
-
-<!--EndFragment-->
+| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |         |         |
+| ---------- | ------------------------ | ---------------------------------------------- | ------- | ------- |
+| 165        | Seychelles               | Africa                                         | 5422    | 5513.13 |
+| 125        | Cabo Verde               | Africa                                         | 22772   | 4095.78 |
+| 20         | South Africa             | Africa                                         | 1577200 | 2659.31 |
 
 ```ipynb
 Africa_Sort.tail(3)
 ```
 
-<!--StartFragment-->
-
-|     | Name                        | WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |
-| --- | --------------------------- | ---------- | ------------------------ | ---------------------------------------------- |
-| 168 | Chad                        | Africa     | 4779                     | 29.09                                          |
-| 166 | Niger                       | Africa     | 5204                     | 21.50                                          |
-| 202 | United Republic of Tanzania | Africa     | 509                      | 0.85                                           |
-
-<!--EndFragment-->
+| Name | WHO Region                  | Cases - cumulative total | Cases - cumulative total per 100000 population |       |
+| ---- | --------------------------- | ------------------------ | ---------------------------------------------- | ----- |
+| 168  | Chad                        | Africa                   | 4779                                           | 29.09 |
+| 166  | Niger                       | Africa                   | 5204                                           | 21.50 |
+| 202  | United Republic of Tanzania | Africa                   | 509                                            | 0.85  |
 
 # Data Visualisation - What is the cumulative number of cases for each African Country
 
@@ -315,7 +287,11 @@ Cumulative_cases_plot.update_traces(marker_line_color="black") # line markers be
 Cumulative_cases_plot.show()
 ```
 
+
+
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~bunmiadeayo/1.embed"></iframe>
+
+
 
 ### This is an interactive map, so you can hover over each region, zoom in and out of the map.
 
@@ -369,7 +345,11 @@ Cumulative_cases_per_population_plot.update_traces(marker_line_color="black")
 Cumulative_cases_per_population_plot.show()
 ```
 
+
+
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~bunmiadeayo/4.embed"></iframe>
+
+
 
 ### This is an interactive map, so you can hover over each region, zoom in and out of the map.
 
