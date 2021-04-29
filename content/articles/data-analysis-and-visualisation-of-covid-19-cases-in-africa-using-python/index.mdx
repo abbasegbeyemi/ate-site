@@ -9,7 +9,7 @@ image: covid-19-cases-in-africa-april-2021-cases-cumulative-total-.png
 
 The World Health Organisation (WHO) provides the official daily counts of COVID-19 cases and deaths reported by countries, territories and areas globally. The dataset contains information such as the cases (cumulative total), cases (per 100,000 population), deaths (cumulative total), deaths (per 100,000 population), etc. 
 
-The dataset is available via this link - https://covid19.who.int/table. Caution must be taken when interpreting the data presented as different countries and territories have different data collection techniques and frequencies. 
+The dataset is available via this [link](https://covid19.who.int/table). Caution must be taken when interpreting the data presented as different countries and territories have different data collection techniques and frequencies. 
 
 # Aim and Objectives
 
@@ -78,19 +78,19 @@ Now, let's take a look at the updated dataset.
 df
 ```
 
-| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |           |             |
-| ---------- | ------------------------ | ---------------------------------------------- | --------- | ----------- |
-| 0          | Global                   | NaN                                            | 148999876 | 1908.710561 |
-| 1          | United States of America | Americas                                       | 31835314  | 9617.840000 |
-| 2          | India                    | South-East Asia                                | 18376524  | 1331.630000 |
-| 3          | Brazil                   | Americas                                       | 14441563  | 6794.130000 |
-| 4          | France                   | Europe                                         | 5447883   | 8376.290000 |
-| ...        | ...                      | ...                                            | ...       | ...         |
-| 233        | Saint Helena             | Africa                                         | 0         | 0.000000    |
-| 234        | Tokelau                  | Western Pacific                                | 0         | 0.000000    |
-| 235        | Tonga                    | Western Pacific                                | 0         | 0.000000    |
-| 236        | Turkmenistan             | Europe                                         | 0         | 0.000000    |
-| 237        | Tuvalu                   | Western Pacific                                | 0         | 0.000000    |
+|     | Name                     | WHO Region      | Cases - cumulative total | Cases - cumulative total per 100000 population |
+| --- | ------------------------ | --------------- | ------------------------ | ---------------------------------------------- |
+| 0   | Global                   | NaN             | 148999876                | 1908.710561                                    |
+| 1   | United States of America | Americas        | 31835314                 | 9617.840000                                    |
+| 2   | India                    | South-East Asia | 18376524                 | 1331.630000                                    |
+| 3   | Brazil                   | Americas        | 14441563                 | 6794.130000                                    |
+| 4   | France                   | Europe          | 5447883                  | 8376.290000                                    |
+| ... | ...                      | ...             | ...                      | ...                                            |
+| 233 | Saint Helena             | Africa          | 0                        | 0.000000                                       |
+| 234 | Tokelau                  | Western Pacific | 0                        | 0.000000                                       |
+| 235 | Tonga                    | Western Pacific | 0                        | 0.000000                                       |
+| 236 | Turkmenistan             | Europe          | 0                        | 0.000000                                       |
+| 237 | Tuvalu                   | Western Pacific | 0                        | 0.000000                                       |
 
 238 rows × 4 columns
 
@@ -128,9 +128,9 @@ len(Africa)
 
 50
 
-The initial filtered data (Africa) only shows 50 countries, however, there are 54 countries in Africa (https://www.worldometers.info/geography/how-many-countries-in-africa/).
+The initial filtered data (Africa) only shows 50 countries, however, [there are 54 countries in Africa](https://www.worldometers.info/geography/how-many-countries-in-africa/).
 
-This is because some Africa countries (i.e. Morocco, Tunisia, Egypt, Sudan, Libya, Somalia and Djibouti) are classified under the "Eastern Mediterranean" WHO Region.
+This is because some African countries (i.e. Morocco, Tunisia, Egypt, Sudan, Libya, Somalia and Djibouti) are classified under the "Eastern Mediterranean" WHO Region.
 
 Also, "Réunion", "Mayotte" & "Saint Helena" (which are dependent territories) are classified within Africa.
 
@@ -153,7 +153,7 @@ len(Africa_updated)
 
 54
 
-54 matches the total number of countries in Africa - https://www.worldometers.info/geography/how-many-countries-in-africa/
+54 matches the total number of countries in Africa.
 
 # Descriptive Statistics
 
@@ -212,21 +212,21 @@ Let's see what the sorted data (Africa_Sort) looks like. We'll also like to see 
 Africa_Sort.head(3)
 ```
 
-| WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |         |         |
-| ---------- | ------------------------ | ---------------------------------------------- | ------- | ------- |
-| 165        | Seychelles               | Africa                                         | 5422    | 5513.13 |
-| 125        | Cabo Verde               | Africa                                         | 22772   | 4095.78 |
-| 20         | South Africa             | Africa                                         | 1577200 | 2659.31 |
+|     | Name         | WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |
+| --- | ------------ | ---------- | ------------------------ | ---------------------------------------------- |
+| 165 | Seychelles   | Africa     | 5422                     | 5513.13                                        |
+| 125 | Cabo Verde   | Africa     | 22772                    | 4095.78                                        |
+| 20  | South Africa | Africa     | 1577200                  | 2659.31                                        |
 
 ```ipynb
 Africa_Sort.tail(3)
 ```
 
-| Name | WHO Region                  | Cases - cumulative total | Cases - cumulative total per 100000 population |       |
-| ---- | --------------------------- | ------------------------ | ---------------------------------------------- | ----- |
-| 168  | Chad                        | Africa                   | 4779                                           | 29.09 |
-| 166  | Niger                       | Africa                   | 5204                                           | 21.50 |
-| 202  | United Republic of Tanzania | Africa                   | 509                                            | 0.85  |
+|     | Name                        | WHO Region | Cases - cumulative total | Cases - cumulative total per 100000 population |
+| --- | --------------------------- | ---------- | ------------------------ | ---------------------------------------------- |
+| 168 | Chad                        | Africa     | 4779                     | 29.09                                          |
+| 166 | Niger                       | Africa     | 5204                     | 21.50                                          |
+| 202 | United Republic of Tanzania | Africa     | 509                      | 0.85                                           |
 
 # Data Visualisation - What is the cumulative number of cases for each African Country
 
@@ -287,11 +287,7 @@ Cumulative_cases_plot.update_traces(marker_line_color="black") # line markers be
 Cumulative_cases_plot.show()
 ```
 
-
-
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~bunmiadeayo/1.embed"></iframe>
-
-
 
 ### This is an interactive map, so you can hover over each region, zoom in and out of the map.
 
@@ -345,11 +341,7 @@ Cumulative_cases_per_population_plot.update_traces(marker_line_color="black")
 Cumulative_cases_per_population_plot.show()
 ```
 
-
-
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~bunmiadeayo/4.embed"></iframe>
-
-
 
 ### This is an interactive map, so you can hover over each region, zoom in and out of the map.
 
