@@ -1,0 +1,76 @@
+---
+template: article
+title: Person Detection using a computer vision approach
+date: 2021-05-23T15:13:38.400Z
+author: temiodusina
+image: 1-yj1y1zxjx8wv7h59nuxhgq.jpeg
+---
+Imagine being the owner of chain of restaurants, forecasting customer traffic could help provide insights in making strategic decisions to increase productivity. In this post, we shall tackle the problem of person/human detection in images or video for monitoring purposes.
+
+There are various techniques in literature to solve the person detection problem. A very common approach used in the past is the Haar Cascade’s method proposed by proposed by Paul Viola and Michael Jones in their paper “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. Another approach involves computing **Histogram of oriented Gradients (HoG) .** HoG measures the strength and orientation of image gradients (features) within an image region. An image is generally scanned from top left to bottom right with a rectangle sliding window at different scales. For each sliding window, these features are extracted and sent to a classifier usually Support Vector Machines (SVM) that is previously trained offline on labeled datasets. It classifies the sliding window as person or non person. Luckily, the OpenCV library ships with a pre-trained HoG + Linear SVM classifier that can be used to perform person detection in both images and video streams. We shall be utilizing this pre-trained model in our application. Enough theory lets jump into some code 😊.
+
+The first thing we do is to load the images to be analyzed into memory. We perform that with the code snippet below. The ***load_images*** function takes in a string pointing to the directory where the images are stored and returns a map object with the filenames and the corresponding Matrix Array
+
+```
+std::map<String, Mat>  load_images(const String &path){
+	vector<String> files;
+
+	map<String, Mat> m;
+	glob(path, files);
+
+	for (size_t i=0; i < files.size(); ++i)
+	{
+
+		Mat img = imread(files[i]);
+
+		if (img.empty()){
+
+			cout << files[i] << "is invalid" << endl;
+		}
+		
+		m.insert(pair<String,Mat>(files[i], img));
+	}
+
+	return m;
+	
+
+}
+```
+
+Given a single image, persons detection can be performed by calling ***the detect*** function in the code snippet below. In Line 4, the call to ***detectMultiScale*** function constructs an [image pyramid](https://pyimagesearch.com/2015/03/16/image-pyramids-with-python-and-opencv/) with a scale=1.08 and a sliding window step size of (4, 4) pixels in both the *x* and *y* direction, respectively. A larger scale size will evaluate *less* layers in the image pyramid which can make the algorithm run faster. However, having *too large* of a scale (i.e., less layers in the image pyramid) can lead to persons not being detected. Hence tuning of these parameters is vital to get good results. The** *detect*** function returns the bounding box *(x, y)*-coordinates of each person detected in the image
+
+```
+
+vector <Rect> PersonDetector::detect(const Mat& img)
+{
+	vector<Rect> found;
+	hog.detectMultiScale(img, found, 0.6, Size(4,4), Size(), 1.08, 2, false);
+	return found;
+}
+```
+
+Finally, the bounding box can be draw around the detected person(s) by calling ***drawRect*** function below.
+
+```
+void PersonDetector::drawRect(Mat &img, const vector<Rect>& rects)
+{
+	for (auto&r : rects){
+
+	rectangle(img, r.tl(), r.br(), cv::Scalar(0, 255, 0), 2);
+   	}       
+}
+```
+
+
+
+![](https://cdn-images-1.medium.com/max/800/1*xm2NUtJ5MKNIST9AxoRy1w.jpeg)
+
+Since our end goal, is to monitor foot traffic in and out of restaurants we can log the number of people detected in the images, time stamp information and the image file name to a text file.
+
+![](https://cdn-images-1.medium.com/max/800/1*1Jqa-od_MaHRVQqnryZl_w.png)
+
+### Summary
+
+Person Detection is crucial for many applications. In this project we have utilized a pre-trained HOG+ Linear SVM to *automatically* detect people in images allowing for accurate monitoring of foot traffic in restaurants.
+
+More details (code + files) on this topic, Do check this link — <https://github.com/temi92/PersonDetection>
